@@ -7,27 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F84E99E320AA2071002E46FB /* CustomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E99E220AA2071002E46FB /* CustomTabItemView.swift */; };
 		F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089020A81A0800A21883 /* AppDelegate.swift */; };
 		F8BF089320A81A0800A21883 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089220A81A0800A21883 /* PageViewController.swift */; };
 		F8BF089620A81A0800A21883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089420A81A0800A21883 /* Main.storyboard */; };
-		F8BF089920A81A0800A21883 /* ClearSky.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089720A81A0800A21883 /* ClearSky.xcdatamodeld */; };
+		F8BF089920A81A0800A21883 /* GreyClouds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089720A81A0800A21883 /* GreyClouds.xcdatamodeld */; };
 		F8BF089B20A81A0900A21883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089A20A81A0900A21883 /* Assets.xcassets */; };
 		F8BF089E20A81A0900A21883 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089C20A81A0900A21883 /* LaunchScreen.storyboard */; };
 		F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF08A520A81B9000A21883 /* WeatherViewController.swift */; };
 		F8BF08A820A8970000A21883 /* ForecastIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BF08A720A8970000A21883 /* ForecastIO.framework */; };
+		F8D0B57320A9EFA200CDA229 /* SwipeMenuViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0B57220A9EFA200CDA229 /* SwipeMenuViewExtension.swift */; };
+		F8D0B57520A9F1AB00CDA229 /* Forecasts.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D0B57420A9F1AB00CDA229 /* Forecasts.xib */; };
+		F8D0B57720A9F47E00CDA229 /* ForecastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0B57620A9F47E00CDA229 /* ForecastsView.swift */; };
+		F8D0B57F20AA13CA00CDA229 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0B57920AA13C900CDA229 /* TabItemView.swift */; };
+		F8D0B58020AA13CA00CDA229 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0B57A20AA13C900CDA229 /* TabView.swift */; };
+		F8D0B58220AA13CA00CDA229 /* ContentScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0B57C20AA13CA00CDA229 /* ContentScrollView.swift */; };
+		F8D0B58320AA13CA00CDA229 /* SwipeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0B57D20AA13CA00CDA229 /* SwipeMenuViewController.swift */; };
+		F8D0B58420AA13CA00CDA229 /* SwipeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0B57E20AA13CA00CDA229 /* SwipeMenuView.swift */; };
+		F8FAE3B720AB47E1002796E5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FAE3B520AB47E1002796E5 /* UIColorExtension.swift */; };
+		F8FAE3B820AB47E1002796E5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FAE3B620AB47E1002796E5 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F8BF088D20A81A0800A21883 /* ClearSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F84E99E220AA2071002E46FB /* CustomTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabItemView.swift; sourceTree = "<group>"; };
+		F8BF088D20A81A0800A21883 /* GreyClouds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreyClouds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BF089020A81A0800A21883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BF089220A81A0800A21883 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F8BF089520A81A0800A21883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F8BF089820A81A0800A21883 /* ClearSky.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClearSky.xcdatamodel; sourceTree = "<group>"; };
+		F8BF089820A81A0800A21883 /* GreyClouds.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreyClouds.xcdatamodel; sourceTree = "<group>"; };
 		F8BF089A20A81A0900A21883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8BF089D20A81A0900A21883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BF089F20A81A0900A21883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8BF08A520A81B9000A21883 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		F8BF08A720A8970000A21883 /* ForecastIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForecastIO.framework; path = Carthage/Build/iOS/ForecastIO.framework; sourceTree = "<group>"; };
+		F8D0B57220A9EFA200CDA229 /* SwipeMenuViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMenuViewExtension.swift; sourceTree = "<group>"; };
+		F8D0B57420A9F1AB00CDA229 /* Forecasts.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Forecasts.xib; sourceTree = "<group>"; };
+		F8D0B57620A9F47E00CDA229 /* ForecastsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsView.swift; sourceTree = "<group>"; };
+		F8D0B57920AA13C900CDA229 /* TabItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
+		F8D0B57A20AA13C900CDA229 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		F8D0B57C20AA13CA00CDA229 /* ContentScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentScrollView.swift; sourceTree = "<group>"; };
+		F8D0B57D20AA13CA00CDA229 /* SwipeMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeMenuViewController.swift; sourceTree = "<group>"; };
+		F8D0B57E20AA13CA00CDA229 /* SwipeMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeMenuView.swift; sourceTree = "<group>"; };
+		F8FAE3B520AB47E1002796E5 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F8FAE3B620AB47E1002796E5 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				F8BF08A720A8970000A21883 /* ForecastIO.framework */,
-				F8BF088F20A81A0800A21883 /* ClearSky */,
+				F8BF088F20A81A0800A21883 /* GreyClouds */,
 				F8BF088E20A81A0800A21883 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,14 +76,16 @@
 		F8BF088E20A81A0800A21883 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F8BF088D20A81A0800A21883 /* ClearSky.app */,
+				F8BF088D20A81A0800A21883 /* GreyClouds.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F8BF088F20A81A0800A21883 /* ClearSky */ = {
+		F8BF088F20A81A0800A21883 /* GreyClouds */ = {
 			isa = PBXGroup;
 			children = (
+				F8D0B57820AA138600CDA229 /* SwipeMenuViewController */,
+				F8D0B57120A9EF8100CDA229 /* Extensions */,
 				F8BF089020A81A0800A21883 /* AppDelegate.swift */,
 				F8BF089220A81A0800A21883 /* PageViewController.swift */,
 				F8BF089420A81A0800A21883 /* Main.storyboard */,
@@ -69,17 +93,50 @@
 				F8BF089A20A81A0900A21883 /* Assets.xcassets */,
 				F8BF089C20A81A0900A21883 /* LaunchScreen.storyboard */,
 				F8BF089F20A81A0900A21883 /* Info.plist */,
-				F8BF089720A81A0800A21883 /* ClearSky.xcdatamodeld */,
+				F8BF089720A81A0800A21883 /* GreyClouds.xcdatamodeld */,
+				F8D0B57420A9F1AB00CDA229 /* Forecasts.xib */,
+				F8D0B57620A9F47E00CDA229 /* ForecastsView.swift */,
+				F84E99E220AA2071002E46FB /* CustomTabItemView.swift */,
 			);
-			path = ClearSky;
+			path = GreyClouds;
+			sourceTree = "<group>";
+		};
+		F8D0B57120A9EF8100CDA229 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8D0B57220A9EFA200CDA229 /* SwipeMenuViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8D0B57820AA138600CDA229 /* SwipeMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F8FAE3B420AB47C6002796E5 /* Extensions */,
+				F8D0B57C20AA13CA00CDA229 /* ContentScrollView.swift */,
+				F8D0B57E20AA13CA00CDA229 /* SwipeMenuView.swift */,
+				F8D0B57D20AA13CA00CDA229 /* SwipeMenuViewController.swift */,
+				F8D0B57920AA13C900CDA229 /* TabItemView.swift */,
+				F8D0B57A20AA13C900CDA229 /* TabView.swift */,
+			);
+			path = SwipeMenuViewController;
+			sourceTree = "<group>";
+		};
+		F8FAE3B420AB47C6002796E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8FAE3B520AB47E1002796E5 /* UIColorExtension.swift */,
+				F8FAE3B620AB47E1002796E5 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F8BF088C20A81A0800A21883 /* ClearSky */ = {
+		F8BF088C20A81A0800A21883 /* GreyClouds */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F8BF08A220A81A0900A21883 /* Build configuration list for PBXNativeTarget "ClearSky" */;
+			buildConfigurationList = F8BF08A220A81A0900A21883 /* Build configuration list for PBXNativeTarget "GreyClouds" */;
 			buildPhases = (
 				F8BF088920A81A0800A21883 /* Sources */,
 				F8BF088A20A81A0800A21883 /* Frameworks */,
@@ -90,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = ClearSky;
-			productName = ClearSky;
-			productReference = F8BF088D20A81A0800A21883 /* ClearSky.app */;
+			name = GreyClouds;
+			productName = GreyClouds;
+			productReference = F8BF088D20A81A0800A21883 /* GreyClouds.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +167,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F8BF088820A81A0800A21883 /* Build configuration list for PBXProject "ClearSky" */;
+			buildConfigurationList = F8BF088820A81A0800A21883 /* Build configuration list for PBXProject "GreyClouds" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,7 +180,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F8BF088C20A81A0800A21883 /* ClearSky */,
+				F8BF088C20A81A0800A21883 /* GreyClouds */,
 			);
 		};
 /* End PBXProject section */
@@ -133,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D0B57520A9F1AB00CDA229 /* Forecasts.xib in Resources */,
 				F8BF089E20A81A0900A21883 /* LaunchScreen.storyboard in Resources */,
 				F8BF089B20A81A0900A21883 /* Assets.xcassets in Resources */,
 				F8BF089620A81A0800A21883 /* Main.storyboard in Resources */,
@@ -164,10 +222,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D0B57320A9EFA200CDA229 /* SwipeMenuViewExtension.swift in Sources */,
+				F8D0B57F20AA13CA00CDA229 /* TabItemView.swift in Sources */,
+				F8D0B58020AA13CA00CDA229 /* TabView.swift in Sources */,
 				F8BF089320A81A0800A21883 /* PageViewController.swift in Sources */,
-				F8BF089920A81A0800A21883 /* ClearSky.xcdatamodeld in Sources */,
+				F8FAE3B820AB47E1002796E5 /* UIViewExtension.swift in Sources */,
+				F84E99E320AA2071002E46FB /* CustomTabItemView.swift in Sources */,
+				F8D0B57720A9F47E00CDA229 /* ForecastsView.swift in Sources */,
+				F8FAE3B720AB47E1002796E5 /* UIColorExtension.swift in Sources */,
+				F8BF089920A81A0800A21883 /* GreyClouds.xcdatamodeld in Sources */,
+				F8D0B58320AA13CA00CDA229 /* SwipeMenuViewController.swift in Sources */,
+				F8D0B58420AA13CA00CDA229 /* SwipeMenuView.swift in Sources */,
 				F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */,
 				F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */,
+				F8D0B58220AA13CA00CDA229 /* ContentScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +385,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ClearSky/Info.plist;
+				INFOPLIST_FILE = GreyClouds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,7 +407,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ClearSky/Info.plist;
+				INFOPLIST_FILE = GreyClouds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +422,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F8BF088820A81A0800A21883 /* Build configuration list for PBXProject "ClearSky" */ = {
+		F8BF088820A81A0800A21883 /* Build configuration list for PBXProject "GreyClouds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F8BF08A020A81A0900A21883 /* Debug */,
@@ -363,7 +431,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F8BF08A220A81A0900A21883 /* Build configuration list for PBXNativeTarget "ClearSky" */ = {
+		F8BF08A220A81A0900A21883 /* Build configuration list for PBXNativeTarget "GreyClouds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F8BF08A320A81A0900A21883 /* Debug */,
@@ -375,13 +443,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F8BF089720A81A0800A21883 /* ClearSky.xcdatamodeld */ = {
+		F8BF089720A81A0800A21883 /* GreyClouds.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F8BF089820A81A0800A21883 /* ClearSky.xcdatamodel */,
+				F8BF089820A81A0800A21883 /* GreyClouds.xcdatamodel */,
 			);
-			currentVersion = F8BF089820A81A0800A21883 /* ClearSky.xcdatamodel */;
-			path = ClearSky.xcdatamodeld;
+			currentVersion = F8BF089820A81A0800A21883 /* GreyClouds.xcdatamodel */;
+			path = GreyClouds.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

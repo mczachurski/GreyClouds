@@ -9,7 +9,7 @@
 import UIKit
 import ForecastIO
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, SwipeMenuViewDelegate, SwipeMenuViewDataSource {
 
     public var city: String?
     public var latitiude: Double?
@@ -20,6 +20,14 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var temperatureOutlet: UILabel!
     @IBOutlet private weak var iconOutlet: UIImageView!
     @IBOutlet private weak var dayDescriptionOutlet: UILabel!
+
+    @IBOutlet weak var swipeMenuView: SwipeMenuView! {
+        didSet {
+            swipeMenuView.delegate = self
+            swipeMenuView.dataSource = self
+            swipeMenuView.setCustomOptions()
+        }
+    }
 
     private let client = DarkSkyClient(apiKey: "2d8311164f8961ecd00c6571939b1737")
     public var forecast: Forecast? {
@@ -37,6 +45,7 @@ class WeatherViewController: UIViewController {
                 }
 
                 self.dayDescriptionOutlet.text = self.forecast?.daily?.summary
+                self.swipeMenuView.reloadData()
             }
         }
     }
@@ -76,5 +85,59 @@ class WeatherViewController: UIViewController {
                 print("Error: \(error)")
             }
         }
+    }
+
+    // MARK: - SwipeMenuViewDelegate
+
+    func swipeMenuView(_ swipeMenuView: SwipeMenuView, didChangeIndexFrom fromIndex: Int, to toIndex: Int) {
+    }
+
+    // MARK: - SwipeMenuViewDataSource
+
+    func numberOfPages(in swipeMenuView: SwipeMenuView) -> Int {
+        guard let days = self.forecast?.daily?.data.count else {
+            return 0
+        }
+
+        return days > 5 ? 5 : days
+    }
+
+    func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewForPageAt index: Int, withFrame frame: CGRect) -> TabItemView? {
+        let tabItemView = CustomTabItemView(frame: frame)
+
+        if let dayData = self.forecast?.daily?.data[index] {
+            tabItemView.imageName = dayData.icon?.rawValue
+
+            let roundedLowTemperature = Int(dayData.temperatureLow?.rounded(FloatingPointRoundingRule.toNearestOrEven) ?? 0)
+            let roundedHighTemperature = Int(dayData.temperatureHigh?.rounded(FloatingPointRoundingRule.toNearestOrEven) ?? 0)
+
+            tabItemView.details = "\(roundedLowTemperature)º/\(roundedHighTemperature)º"
+        }
+
+
+        return tabItemView
+    }
+
+    func swipeMenuView(_ swipeMenuView: SwipeMenuView, titleForPageAt index: Int) -> String {
+        guard let time = self.forecast?.daily?.data[index].time else {
+            return ""
+        }
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E"
+        return formatter.string(from: time)
+    }
+
+    private var index: Int = 1
+
+    func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
+        let viewController = UIViewController()
+
+        let forecastView = ForecastsView()
+        forecastView.labelOutlet.text = "Forecast \(index)"
+        self.index = self.index + 1
+
+        viewController.view = forecastView
+        return viewController
     }
 }
