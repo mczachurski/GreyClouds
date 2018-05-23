@@ -22,13 +22,24 @@ class CustomTabItemView : TabItemView {
         }
     }
 
+    public var isBoldTitle = false
+
     private var imageView: UIImageView!
     private var detailsLabel: UILabel!
 
-    override func setupView() {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    func setupView() {
         titleLabel = UILabel(frame: CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: 14))
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
+        titleLabel.font = UIFont.systemFont(ofSize: 14, weight: self.isBoldTitle ? UIFont.Weight.bold : UIFont.Weight.light)
         titleLabel.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 0.85)
         titleLabel.backgroundColor = UIColor.clear
         addSubview(titleLabel)

@@ -10,34 +10,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForecastsView" customModule="ClearSky" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForecastsView" customModule="GreyClouds" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Qh4-0o-4se"/>
-                <outlet property="labelOutlet" destination="G3c-Z2-seM" id="HmP-CG-ToJ"/>
+                <outlet property="precipPropabilityViewOutlet" destination="AKd-uM-XHX" id="OKd-Ax-sKJ"/>
+                <outlet property="temperatureViewOutlet" destination="wwZ-2v-B9D" id="nIv-1n-2Zy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="468"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3c-Z2-seM">
-                    <rect key="frame" x="16" y="147" width="343" height="21"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xj9-gC-dmy">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="468"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wwZ-2v-B9D">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="221" id="GYc-eJ-IP9"/>
+                            </constraints>
+                            <viewLayoutGuide key="safeArea" id="aK9-Gz-m0t"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKd-uM-XHX">
+                            <rect key="frame" x="0.0" y="229" width="375" height="219"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="219" id="z4n-EG-uod"/>
+                            </constraints>
+                            <viewLayoutGuide key="safeArea" id="bI1-W1-5LZ"/>
+                        </view>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="1s9-pt-eEC"/>
+                        <constraint firstItem="wwZ-2v-B9D" firstAttribute="trailing" secondItem="AKd-uM-XHX" secondAttribute="trailing" id="2a2-7X-MY8"/>
+                        <constraint firstAttribute="bottom" secondItem="AKd-uM-XHX" secondAttribute="bottom" constant="20" id="TbA-Gd-tTW"/>
+                        <constraint firstItem="wwZ-2v-B9D" firstAttribute="top" secondItem="xj9-gC-dmy" secondAttribute="top" id="Xge-Ig-TOd"/>
+                        <constraint firstItem="wwZ-2v-B9D" firstAttribute="centerX" secondItem="xj9-gC-dmy" secondAttribute="centerX" id="bhD-1T-4Bw"/>
+                        <constraint firstAttribute="trailing" secondItem="wwZ-2v-B9D" secondAttribute="trailing" id="t1A-zf-udR"/>
+                        <constraint firstItem="wwZ-2v-B9D" firstAttribute="leading" secondItem="xj9-gC-dmy" secondAttribute="leading" id="t7V-wz-G9A"/>
+                        <constraint firstItem="wwZ-2v-B9D" firstAttribute="leading" secondItem="AKd-uM-XHX" secondAttribute="leading" id="uXX-ik-eMn"/>
+                        <constraint firstItem="AKd-uM-XHX" firstAttribute="top" secondItem="wwZ-2v-B9D" secondAttribute="bottom" constant="8" symbolic="YES" id="unT-5k-xLb"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.85304894911504425" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </scrollView>
             </subviews>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="G3c-Z2-seM" secondAttribute="trailing" constant="16" id="6UP-IL-CWD"/>
-                <constraint firstItem="G3c-Z2-seM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="127" id="GuC-k4-7CO"/>
-                <constraint firstItem="G3c-Z2-seM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="aKQ-Vz-irN"/>
+                <constraint firstItem="xj9-gC-dmy" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="1o1-0k-29E"/>
+                <constraint firstItem="xj9-gC-dmy" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="5uR-uU-BQD"/>
+                <constraint firstAttribute="trailing" secondItem="xj9-gC-dmy" secondAttribute="trailing" id="CUa-hg-Dv0"/>
+                <constraint firstItem="xj9-gC-dmy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wA1-To-wUS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-25.5" y="27.5"/>
+            <point key="canvasLocation" x="-25.5" y="-72"/>
         </view>
     </objects>
 </document>

@@ -16,34 +16,4 @@ public class TabItemView: UIView {
             }
         }
     }
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override open func layoutSubviews() {
-        super.layoutSubviews()
-    }
-
-    open func setupView() {
-        titleLabel = UILabel(frame: bounds)
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        titleLabel.textColor = UIColor(red: 140/255, green: 140/255, blue: 140/255, alpha: 1.0)
-        titleLabel.backgroundColor = UIColor.red
-        addSubview(titleLabel)
-
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-        ])
-    }
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F84E99E320AA2071002E46FB /* CustomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E99E220AA2071002E46FB /* CustomTabItemView.swift */; };
+		F8BD66CF20ADE64A00114908 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BD66CE20ADE64A00114908 /* Charts.framework */; };
+		F8BD66D220ADF2CC00114908 /* CustomLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD66D120ADF2CC00114908 /* CustomLineChartView.swift */; };
+		F8BD66D420ADF53100114908 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD66D320ADF53100114908 /* UIColor.swift */; };
 		F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089020A81A0800A21883 /* AppDelegate.swift */; };
 		F8BF089320A81A0800A21883 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089220A81A0800A21883 /* PageViewController.swift */; };
 		F8BF089620A81A0800A21883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089420A81A0800A21883 /* Main.storyboard */; };
@@ -30,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		F84E99E220AA2071002E46FB /* CustomTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabItemView.swift; sourceTree = "<group>"; };
+		F8BD66CE20ADE64A00114908 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		F8BD66D120ADF2CC00114908 /* CustomLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLineChartView.swift; sourceTree = "<group>"; };
+		F8BD66D320ADF53100114908 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F8BF088D20A81A0800A21883 /* GreyClouds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreyClouds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BF089020A81A0800A21883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BF089220A81A0800A21883 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -58,15 +64,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8BF08A820A8970000A21883 /* ForecastIO.framework in Frameworks */,
+				F8BD66CF20ADE64A00114908 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8BD66D020ADF2B500114908 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				F8BD66D120ADF2CC00114908 /* CustomLineChartView.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
 		F8BF088420A81A0800A21883 = {
 			isa = PBXGroup;
 			children = (
+				F8BD66CE20ADE64A00114908 /* Charts.framework */,
 				F8BF08A720A8970000A21883 /* ForecastIO.framework */,
 				F8BF088F20A81A0800A21883 /* GreyClouds */,
 				F8BF088E20A81A0800A21883 /* Products */,
@@ -84,6 +100,7 @@
 		F8BF088F20A81A0800A21883 /* GreyClouds */ = {
 			isa = PBXGroup;
 			children = (
+				F8BD66D020ADF2B500114908 /* Charts */,
 				F8D0B57820AA138600CDA229 /* SwipeMenuViewController */,
 				F8D0B57120A9EF8100CDA229 /* Extensions */,
 				F8BF089020A81A0800A21883 /* AppDelegate.swift */,
@@ -105,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F8D0B57220A9EFA200CDA229 /* SwipeMenuViewExtension.swift */,
+				F8BD66D320ADF53100114908 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -207,9 +225,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/ForecastIO.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ForecastIO.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -224,6 +244,7 @@
 			files = (
 				F8D0B57320A9EFA200CDA229 /* SwipeMenuViewExtension.swift in Sources */,
 				F8D0B57F20AA13CA00CDA229 /* TabItemView.swift in Sources */,
+				F8BD66D220ADF2CC00114908 /* CustomLineChartView.swift in Sources */,
 				F8D0B58020AA13CA00CDA229 /* TabView.swift in Sources */,
 				F8BF089320A81A0800A21883 /* PageViewController.swift in Sources */,
 				F8FAE3B820AB47E1002796E5 /* UIViewExtension.swift in Sources */,
@@ -232,6 +253,7 @@
 				F8FAE3B720AB47E1002796E5 /* UIColorExtension.swift in Sources */,
 				F8BF089920A81A0800A21883 /* GreyClouds.xcdatamodeld in Sources */,
 				F8D0B58320AA13CA00CDA229 /* SwipeMenuViewController.swift in Sources */,
+				F8BD66D420ADF53100114908 /* UIColor.swift in Sources */,
 				F8D0B58420AA13CA00CDA229 /* SwipeMenuView.swift in Sources */,
 				F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */,
 				F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */,

@@ -77,7 +77,7 @@ class WeatherViewController: UIViewController, SwipeMenuViewDelegate, SwipeMenuV
             return
         }
 
-        self.client.getForecast(latitude: latitiude, longitude: longitude) { result in
+        self.client.getForecast(latitude: latitiude, longitude: longitude, extendHourly: true) { result in
             switch result {
             case .success(let forecast, _):
                 self.forecast = forecast
@@ -99,7 +99,7 @@ class WeatherViewController: UIViewController, SwipeMenuViewDelegate, SwipeMenuV
             return 0
         }
 
-        return days > 5 ? 5 : days
+        return days > 6 ? 6 : days
     }
 
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewForPageAt index: Int, withFrame frame: CGRect) -> TabItemView? {
@@ -112,6 +112,7 @@ class WeatherViewController: UIViewController, SwipeMenuViewDelegate, SwipeMenuV
             let roundedHighTemperature = Int(dayData.temperatureHigh?.rounded(FloatingPointRoundingRule.toNearestOrEven) ?? 0)
 
             tabItemView.details = "\(roundedLowTemperature)º/\(roundedHighTemperature)º"
+            tabItemView.isBoldTitle = true
         }
 
 
@@ -123,19 +124,22 @@ class WeatherViewController: UIViewController, SwipeMenuViewDelegate, SwipeMenuV
             return ""
         }
 
+        if index == 0 {
+            return "Now"
+        }
+
         let formatter = DateFormatter()
         formatter.dateFormat = "E"
         return formatter.string(from: time)
     }
 
-    private var index: Int = 1
-
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
         let viewController = UIViewController()
 
         let forecastView = ForecastsView()
-        forecastView.labelOutlet.text = "Forecast \(index)"
-        self.index = self.index + 1
+        forecastView.isFirstDay = index == 0
+        forecastView.day = self.forecast?.daily?.data[index]
+        forecastView.hourly = self.forecast?.hourly
 
         viewController.view = forecastView
         return viewController
