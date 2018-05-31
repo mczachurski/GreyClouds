@@ -41,6 +41,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
+    private var forecastDownloadedTime: Date?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         setConstantOutlets()
         configureDarkSkyClient()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         downloadForecast()
+
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     private func setConstantOutlets() {
@@ -68,14 +75,24 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
 
+        if forecast != nil && !forecastShouldBeDownloaded() {
+            return
+        }
+
         self.client.getForecast(latitude: latitiude, longitude: longitude, extendHourly: true) { result in
             switch result {
             case .success(let forecast, _):
+                self.forecastDownloadedTime = Date()
                 self.forecast = forecast
             case .failure(let error):
                 print("Error: \(error)")
             }
         }
+    }
+
+    private func forecastShouldBeDownloaded() -> Bool {
+        let timeInterval = self.forecastDownloadedTime?.timeIntervalSinceNow
+        return timeInterval ?? 0 > 60
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -96,5 +113,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         weatherItemTableViewCell.forecastForDay = self.forecast?.daily?.data[indexPath.row]
 
         return weatherItemTableViewCell
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "forecast" {
+            if let destination = segue.destination as? ForecastsTableViewController {
+                if let selectedPath = self.tableViewOutlet.indexPathForSelectedRow {
+                    destination.forecastForDay = self.forecast?.daily?.data[selectedPath.row]
+                    destination.hourly = self.forecast?.hourly
+                }
+            }
+        }
     }
 }
