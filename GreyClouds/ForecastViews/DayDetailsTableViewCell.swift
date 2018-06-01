@@ -10,6 +10,7 @@ import UIKit
 import ForecastIO
 
 class DayDetailsTableViewCell: UITableViewCell {
+
     @IBOutlet private weak var dayNameLabelOutlet: UILabel!
     @IBOutlet private weak var imageOutlet: UIImageView!
     @IBOutlet private weak var highTemperatureLabelOutlet: UILabel!
