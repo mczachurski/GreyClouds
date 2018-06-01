@@ -18,6 +18,7 @@
 		F8BF089E20A81A0900A21883 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089C20A81A0900A21883 /* LaunchScreen.storyboard */; };
 		F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF08A520A81B9000A21883 /* WeatherViewController.swift */; };
 		F8BF08A820A8970000A21883 /* ForecastIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BF08A720A8970000A21883 /* ForecastIO.framework */; };
+		F8D604B320C15E0D0043D1FB /* DayStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D604B220C15E0D0043D1FB /* DayStatisticsTableViewCell.swift */; };
 		F8F87A4B20B92E470020CAFA /* WeatherItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F87A4A20B92E470020CAFA /* WeatherItemTableViewCell.swift */; };
 		F8F87A4D20B936110020CAFA /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F87A4C20B936110020CAFA /* Double.swift */; };
 		F8F87A4F20BB05CD0020CAFA /* ForecastsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F87A4E20BB05CD0020CAFA /* ForecastsTableViewController.swift */; };
@@ -39,6 +40,7 @@
 		F8BF08A720A8970000A21883 /* ForecastIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForecastIO.framework; path = Carthage/Build/iOS/ForecastIO.framework; sourceTree = "<group>"; };
 		F8C1012E20C06D73002486F7 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		F8C1012F20C06D73002486F7 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F8D604B220C15E0D0043D1FB /* DayStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		F8F87A4A20B92E470020CAFA /* WeatherItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherItemTableViewCell.swift; sourceTree = "<group>"; };
 		F8F87A4C20B936110020CAFA /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		F8F87A4E20BB05CD0020CAFA /* ForecastsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsTableViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				F810659420BC5F3000DCB6EE /* HourForecastTableViewCell.swift */,
 				F8F87A4E20BB05CD0020CAFA /* ForecastsTableViewController.swift */,
 				F810659620BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift */,
+				F8D604B220C15E0D0043D1FB /* DayStatisticsTableViewCell.swift */,
 			);
 			path = ForecastViews;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				F8F87A4F20BB05CD0020CAFA /* ForecastsTableViewController.swift in Sources */,
 				F810659720BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift in Sources */,
 				F8BF089920A81A0800A21883 /* GreyClouds.xcdatamodeld in Sources */,
+				F8D604B320C15E0D0043D1FB /* DayStatisticsTableViewCell.swift in Sources */,
 				F8BD66D420ADF53100114908 /* UIColor.swift in Sources */,
 				F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */,
 				F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */,

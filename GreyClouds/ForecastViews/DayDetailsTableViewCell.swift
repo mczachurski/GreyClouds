@@ -16,13 +16,7 @@ class DayDetailsTableViewCell: UITableViewCell {
     @IBOutlet private weak var summaryLabelOutlet: UILabel!
     @IBOutlet private weak var sunriseLabelOutlet: UILabel!
     @IBOutlet private weak var sunsetLabelOutlet: UILabel!
-    @IBOutlet private weak var pressureLabelOutlet: UILabel!
-    @IBOutlet private weak var precipProbabilityLabelOutlet: UILabel!
-    @IBOutlet private weak var windSpeedLabelOutlet: UILabel!
-    @IBOutlet private weak var humidityLabelOutlet: UILabel!
     @IBOutlet private weak var lowTemperatureLabelOutlet: UILabel!
-    @IBOutlet private weak var uvIndexLabelOutlet: UILabel!
-    @IBOutlet private weak var visibilityLabelOutlet: UILabel!
     @IBOutlet private weak var moonIconOutlet: UIImageView!
 
     public var forecastForDay: DataPoint? {
@@ -53,24 +47,6 @@ class DayDetailsTableViewCell: UITableViewCell {
             formatter.dateFormat = "EEEE"
             let dayName = formatter.string(from: forecast.time)
             self.dayNameLabelOutlet.text = dayName.uppercased()
-
-            let pressure = Int(forecast.pressure ?? 0)
-            self.pressureLabelOutlet.text = "\(pressure) hPa"
-
-            let precipitationProbability = Int((forecast.precipitationProbability ?? 0) * 100)
-            self.precipProbabilityLabelOutlet.text = "\(precipitationProbability) %"
-
-            let windSpeed = Int(forecast.windSpeed ?? 0)
-            self.windSpeedLabelOutlet.text = "\(windSpeed) kph"
-
-            let humidity = Int((forecast.humidity ?? 0) * 100)
-            self.humidityLabelOutlet.text = "\(humidity) %"
-
-            let uvIndex = Int(forecast.uvIndex ?? 0)
-            self.uvIndexLabelOutlet.text = "\(uvIndex)"
-
-            let visibility = Int(forecast.visibility ?? 0)
-            self.visibilityLabelOutlet.text = "\(visibility) km"
 
             let moonPhaseIconName = self.getMoonPhaseImageName(moonPhase: forecast.moonPhase)
             self.moonIconOutlet.image = UIImage(named: moonPhaseIconName)

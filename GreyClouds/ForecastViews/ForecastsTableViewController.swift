@@ -41,6 +41,7 @@ class ForecastsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.backgroundColor = UIColor.light
         self.clearsSelectionOnViewWillAppear = false
     }
 
@@ -55,14 +56,16 @@ class ForecastsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 340
-        default:
+            return 200
+        case 1:
             return 50
+        default:
+            return 175
         }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -81,14 +84,16 @@ class ForecastsTableViewController: UITableViewController {
         switch section {
         case 0:
             return 1
-        default:
+        case 1:
             return hourlyForThisDay.count
+        default:
+            return 1
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cellName = indexPath.section == 0 ? "day-details" : "hour-forecast"
+        let cellName = self.getCellNameFor(section: indexPath.section)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath)
 
         switch indexPath.section {
@@ -96,12 +101,29 @@ class ForecastsTableViewController: UITableViewController {
             if let dayDetailsCell = cell as? DayDetailsTableViewCell {
                 dayDetailsCell.forecastForDay = self.forecastForDay
             }
-        default:
+        case 1:
             if let hourForecastCell = cell as? HourForecastTableViewCell {
                 hourForecastCell.forecastForHour = self.hourlyForThisDay[indexPath.row]
+            }
+        default:
+            if let dayStatisticsCell = cell as? DayStatisticsTableViewCell {
+                dayStatisticsCell.forecastForDay = self.hourlyForThisDay[indexPath.row]
             }
         }
 
         return cell
+    }
+
+    private func getCellNameFor(section: Int) -> String {
+        switch section {
+        case 0:
+            return "day-details"
+        case 1:
+            return "hour-forecast"
+        case 2:
+            return "day-stats"
+        default:
+            return ""
+        }
     }
 }
