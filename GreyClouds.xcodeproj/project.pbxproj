@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		F810659520BC5F3000DCB6EE /* HourForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F810659420BC5F3000DCB6EE /* HourForecastTableViewCell.swift */; };
 		F810659720BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F810659620BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift */; };
-		F8BD66CF20ADE64A00114908 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BD66CE20ADE64A00114908 /* Charts.framework */; };
-		F8BD66D220ADF2CC00114908 /* CustomLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD66D120ADF2CC00114908 /* CustomLineChartView.swift */; };
 		F8BD66D420ADF53100114908 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD66D320ADF53100114908 /* UIColor.swift */; };
 		F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089020A81A0800A21883 /* AppDelegate.swift */; };
 		F8BF089320A81A0800A21883 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089220A81A0800A21883 /* PageViewController.swift */; };
@@ -20,7 +18,6 @@
 		F8BF089E20A81A0900A21883 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089C20A81A0900A21883 /* LaunchScreen.storyboard */; };
 		F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF08A520A81B9000A21883 /* WeatherViewController.swift */; };
 		F8BF08A820A8970000A21883 /* ForecastIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8BF08A720A8970000A21883 /* ForecastIO.framework */; };
-		F8D0B57720A9F47E00CDA229 /* ForecastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D0B57620A9F47E00CDA229 /* ForecastsView.swift */; };
 		F8F87A4B20B92E470020CAFA /* WeatherItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F87A4A20B92E470020CAFA /* WeatherItemTableViewCell.swift */; };
 		F8F87A4D20B936110020CAFA /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F87A4C20B936110020CAFA /* Double.swift */; };
 		F8F87A4F20BB05CD0020CAFA /* ForecastsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F87A4E20BB05CD0020CAFA /* ForecastsTableViewController.swift */; };
@@ -29,8 +26,6 @@
 /* Begin PBXFileReference section */
 		F810659420BC5F3000DCB6EE /* HourForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourForecastTableViewCell.swift; sourceTree = "<group>"; };
 		F810659620BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailsTableViewCell.swift; sourceTree = "<group>"; };
-		F8BD66CE20ADE64A00114908 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
-		F8BD66D120ADF2CC00114908 /* CustomLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLineChartView.swift; sourceTree = "<group>"; };
 		F8BD66D320ADF53100114908 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F8BF088D20A81A0800A21883 /* GreyClouds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreyClouds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BF089020A81A0800A21883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +37,8 @@
 		F8BF089F20A81A0900A21883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8BF08A520A81B9000A21883 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		F8BF08A720A8970000A21883 /* ForecastIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForecastIO.framework; path = Carthage/Build/iOS/ForecastIO.framework; sourceTree = "<group>"; };
-		F8D0B57620A9F47E00CDA229 /* ForecastsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsView.swift; sourceTree = "<group>"; };
+		F8C1012E20C06D73002486F7 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
+		F8C1012F20C06D73002486F7 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F8F87A4A20B92E470020CAFA /* WeatherItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherItemTableViewCell.swift; sourceTree = "<group>"; };
 		F8F87A4C20B936110020CAFA /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		F8F87A4E20BB05CD0020CAFA /* ForecastsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsTableViewController.swift; sourceTree = "<group>"; };
@@ -54,25 +50,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8BF08A820A8970000A21883 /* ForecastIO.framework in Frameworks */,
-				F8BD66CF20ADE64A00114908 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F8BD66D020ADF2B500114908 /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-				F8BD66D120ADF2CC00114908 /* CustomLineChartView.swift */,
-			);
-			path = Charts;
-			sourceTree = "<group>";
-		};
 		F8BF088420A81A0800A21883 = {
 			isa = PBXGroup;
 			children = (
-				F8BD66CE20ADE64A00114908 /* Charts.framework */,
 				F8BF08A720A8970000A21883 /* ForecastIO.framework */,
 				F8BF088F20A81A0800A21883 /* GreyClouds */,
 				F8BF088E20A81A0800A21883 /* Products */,
@@ -90,19 +76,16 @@
 		F8BF088F20A81A0800A21883 /* GreyClouds */ = {
 			isa = PBXGroup;
 			children = (
-				F8F87A4920B92E270020CAFA /* Cells */,
-				F8BD66D020ADF2B500114908 /* Charts */,
+				F8D604B120C11DFB0043D1FB /* ForecastViews */,
+				F8D604B020C11DDB0043D1FB /* WeatherViews */,
 				F8D0B57120A9EF8100CDA229 /* Extensions */,
 				F8BF089020A81A0800A21883 /* AppDelegate.swift */,
 				F8BF089220A81A0800A21883 /* PageViewController.swift */,
 				F8BF089420A81A0800A21883 /* Main.storyboard */,
-				F8BF08A520A81B9000A21883 /* WeatherViewController.swift */,
 				F8BF089A20A81A0900A21883 /* Assets.xcassets */,
 				F8BF089C20A81A0900A21883 /* LaunchScreen.storyboard */,
 				F8BF089F20A81A0900A21883 /* Info.plist */,
 				F8BF089720A81A0800A21883 /* GreyClouds.xcdatamodeld */,
-				F8D0B57620A9F47E00CDA229 /* ForecastsView.swift */,
-				F8F87A4E20BB05CD0020CAFA /* ForecastsTableViewController.swift */,
 			);
 			path = GreyClouds;
 			sourceTree = "<group>";
@@ -116,14 +99,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F8F87A4920B92E270020CAFA /* Cells */ = {
+		F8D604B020C11DDB0043D1FB /* WeatherViews */ = {
 			isa = PBXGroup;
 			children = (
+				F8BF08A520A81B9000A21883 /* WeatherViewController.swift */,
 				F8F87A4A20B92E470020CAFA /* WeatherItemTableViewCell.swift */,
+			);
+			path = WeatherViews;
+			sourceTree = "<group>";
+		};
+		F8D604B120C11DFB0043D1FB /* ForecastViews */ = {
+			isa = PBXGroup;
+			children = (
 				F810659420BC5F3000DCB6EE /* HourForecastTableViewCell.swift */,
+				F8F87A4E20BB05CD0020CAFA /* ForecastsTableViewController.swift */,
 				F810659620BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift */,
 			);
-			path = Cells;
+			path = ForecastViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,11 +193,9 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/ForecastIO.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ForecastIO.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -218,11 +208,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8BD66D220ADF2CC00114908 /* CustomLineChartView.swift in Sources */,
 				F8BF089320A81A0800A21883 /* PageViewController.swift in Sources */,
 				F8F87A4F20BB05CD0020CAFA /* ForecastsTableViewController.swift in Sources */,
 				F810659720BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift in Sources */,
-				F8D0B57720A9F47E00CDA229 /* ForecastsView.swift in Sources */,
 				F8BF089920A81A0800A21883 /* GreyClouds.xcdatamodeld in Sources */,
 				F8BD66D420ADF53100114908 /* UIColor.swift in Sources */,
 				F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */,
@@ -240,6 +228,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F8BF089520A81A0800A21883 /* Base */,
+				F8C1012E20C06D73002486F7 /* pl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -248,6 +237,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F8BF089D20A81A0900A21883 /* Base */,
+				F8C1012F20C06D73002486F7 /* pl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -259,6 +249,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -319,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

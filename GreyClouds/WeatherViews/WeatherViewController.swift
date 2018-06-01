@@ -66,7 +66,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     private func configureDarkSkyClient() {
         self.client.units = .si
-        self.client.language = Language.polish
+
+        switch Locale.current.languageCode {
+        case "pl":
+            self.client.language = Language.polish
+        default:
+            self.client.language = Language.english
+        }
     }
 
     private func downloadForecast() {

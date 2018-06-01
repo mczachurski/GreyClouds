@@ -11,7 +11,7 @@ import ForecastIO
 
 class WeatherItemTableViewCell: UITableViewCell {
     @IBOutlet private weak var iconImageOutlet: UIImageView!
-    @IBOutlet private  weak var dayNameLabelOutlet: UILabel!
+    @IBOutlet private weak var dayNameLabelOutlet: UILabel!
     @IBOutlet private weak var temperatureLabelOutlet: UILabel!
     @IBOutlet private weak var dayDateLabelOutlet: UILabel!
     
