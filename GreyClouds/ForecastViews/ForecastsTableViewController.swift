@@ -11,6 +11,7 @@ import ForecastIO
 
 class ForecastsTableViewController: UITableViewController {
 
+    public var city: String?
     public var forecastForDay: DataPoint?
     public var hourly: DataBlock? {
         didSet {
@@ -48,7 +49,7 @@ class ForecastsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-        self.navigationItem.title = "Wrocław"
+        self.navigationItem.title = self.city
     }
 
     // MARK: - Table view data source
@@ -66,18 +67,6 @@ class ForecastsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
-    }
-
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
-    }
-
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

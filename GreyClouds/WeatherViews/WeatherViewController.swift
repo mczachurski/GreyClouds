@@ -56,6 +56,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         downloadForecast()
 
+        if let selectedIndexPath = tableViewOutlet.indexPathForSelectedRow {
+            tableViewOutlet.deselectRow(at: selectedIndexPath, animated: true)
+        }
+
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -116,6 +120,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         }
 
+        let selectionColor = UIView()
+        selectionColor.backgroundColor = UIColor.light
+
+        weatherItemTableViewCell.selectedBackgroundView = selectionColor
         weatherItemTableViewCell.forecastForDay = self.forecast?.daily?.data[indexPath.row]
 
         return weatherItemTableViewCell
@@ -127,6 +135,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if let selectedPath = self.tableViewOutlet.indexPathForSelectedRow {
                     destination.forecastForDay = self.forecast?.daily?.data[selectedPath.row]
                     destination.hourly = self.forecast?.hourly
+                    destination.city = self.city
                 }
             }
         }
