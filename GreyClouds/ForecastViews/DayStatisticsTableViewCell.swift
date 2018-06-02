@@ -40,8 +40,11 @@ class DayStatisticsTableViewCell: UITableViewCell {
             let uvIndex = Int(forecast.uvIndex ?? 0)
             self.uvIndexLabelOutlet.text = "\(uvIndex)"
 
-            let visibility = Int(forecast.visibility ?? 0)
-            self.visibilityLabelOutlet.text = "\(visibility) km"
+            if let visibility = forecast.visibility {
+                self.visibilityLabelOutlet.text = "\(Int(visibility)) km"
+            } else {
+                self.visibilityLabelOutlet.text = "- km"
+            }
         }
     }
 }

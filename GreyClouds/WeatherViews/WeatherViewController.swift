@@ -106,15 +106,16 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 62
+        return indexPath.row == 0 ? 30 : 62
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.forecast?.daily?.data.count ?? 0
+        return (self.forecast?.daily?.data.count ?? 0) + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weather", for: indexPath)
+        let cellName = indexPath.row == 0 ? "empty" : "weather"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath)
 
         guard let weatherItemTableViewCell = cell as? WeatherItemTableViewCell else {
             return cell
@@ -124,7 +125,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         selectionColor.backgroundColor = UIColor.light
 
         weatherItemTableViewCell.selectedBackgroundView = selectionColor
-        weatherItemTableViewCell.forecastForDay = self.forecast?.daily?.data[indexPath.row]
+        weatherItemTableViewCell.forecastForDay = self.forecast?.daily?.data[indexPath.row - 1]
 
         return weatherItemTableViewCell
     }
@@ -133,7 +134,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "forecast" {
             if let destination = segue.destination as? ForecastsTableViewController {
                 if let selectedPath = self.tableViewOutlet.indexPathForSelectedRow {
-                    destination.forecastForDay = self.forecast?.daily?.data[selectedPath.row]
+                    destination.forecastForDay = self.forecast?.daily?.data[selectedPath.row - 1]
                     destination.hourly = self.forecast?.hourly
                     destination.city = self.city
                 }
