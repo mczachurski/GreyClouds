@@ -10,4 +10,6 @@ import UIKit
 
 class CityTableViewCell: UITableViewCell {
     @IBOutlet weak var cityLabelOutlet: UILabel!
+    @IBOutlet weak var countryLabelOutlet: UILabel!
+    @IBOutlet weak var navigationImageOutlet: UIImageView!
 }

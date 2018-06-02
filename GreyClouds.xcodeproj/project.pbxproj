@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		F810659520BC5F3000DCB6EE /* HourForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F810659420BC5F3000DCB6EE /* HourForecastTableViewCell.swift */; };
 		F810659720BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F810659620BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift */; };
+		F819D6E620C300F800F0B22C /* GreyClouds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F819D6E420C300F800F0B22C /* GreyClouds.xcdatamodeld */; };
+		F819D6E820C303C900F0B22C /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819D6E720C303C900F0B22C /* CoreDataHandler.swift */; };
+		F819D6EB20C3047B00F0B22C /* PlacesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819D6EA20C3047B00F0B22C /* PlacesHandler.swift */; };
+		F819D6ED20C31A4000F0B22C /* ChangedPlacesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819D6EC20C31A4000F0B22C /* ChangedPlacesDelegate.swift */; };
+		F819D6F020C31DDF00F0B22C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819D6EF20C31DDF00F0B22C /* LoadingViewController.swift */; };
+		F819D6F220C3245D00F0B22C /* LocationFoundedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819D6F120C3245D00F0B22C /* LocationFoundedDelegate.swift */; };
+		F87CECD920C2E31600E80B5F /* SearchLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CECD820C2E31600E80B5F /* SearchLocationTableViewCell.swift */; };
+		F87CECDB20C2E33000E80B5F /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CECDA20C2E33000E80B5F /* SearchLocationTableViewController.swift */; };
 		F8BD66D420ADF53100114908 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD66D320ADF53100114908 /* UIColor.swift */; };
 		F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089020A81A0800A21883 /* AppDelegate.swift */; };
 		F8BF089320A81A0800A21883 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089220A81A0800A21883 /* PageViewController.swift */; };
 		F8BF089620A81A0800A21883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089420A81A0800A21883 /* Main.storyboard */; };
-		F8BF089920A81A0800A21883 /* GreyClouds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8BF089720A81A0800A21883 /* GreyClouds.xcdatamodeld */; };
 		F8BF089B20A81A0900A21883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089A20A81A0900A21883 /* Assets.xcassets */; };
 		F8BF089E20A81A0900A21883 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BF089C20A81A0900A21883 /* LaunchScreen.storyboard */; };
 		F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BF08A520A81B9000A21883 /* WeatherViewController.swift */; };
@@ -30,12 +37,19 @@
 /* Begin PBXFileReference section */
 		F810659420BC5F3000DCB6EE /* HourForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourForecastTableViewCell.swift; sourceTree = "<group>"; };
 		F810659620BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		F819D6E520C300F800F0B22C /* GreyClouds.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreyClouds.xcdatamodel; sourceTree = "<group>"; };
+		F819D6E720C303C900F0B22C /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
+		F819D6EA20C3047B00F0B22C /* PlacesHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesHandler.swift; sourceTree = "<group>"; };
+		F819D6EC20C31A4000F0B22C /* ChangedPlacesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangedPlacesDelegate.swift; sourceTree = "<group>"; };
+		F819D6EF20C31DDF00F0B22C /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		F819D6F120C3245D00F0B22C /* LocationFoundedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFoundedDelegate.swift; sourceTree = "<group>"; };
+		F87CECD820C2E31600E80B5F /* SearchLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewCell.swift; sourceTree = "<group>"; };
+		F87CECDA20C2E33000E80B5F /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
 		F8BD66D320ADF53100114908 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F8BF088D20A81A0800A21883 /* GreyClouds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreyClouds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BF089020A81A0800A21883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BF089220A81A0800A21883 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F8BF089520A81A0800A21883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F8BF089820A81A0800A21883 /* GreyClouds.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GreyClouds.xcdatamodel; sourceTree = "<group>"; };
 		F8BF089A20A81A0900A21883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8BF089D20A81A0900A21883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8BF089F20A81A0900A21883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +78,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F819D6E920C3046200F0B22C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F819D6E720C303C900F0B22C /* CoreDataHandler.swift */,
+				F819D6EA20C3047B00F0B22C /* PlacesHandler.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F819D6EE20C31DBE00F0B22C /* LoadingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F819D6EF20C31DDF00F0B22C /* LoadingViewController.swift */,
+				F819D6F120C3245D00F0B22C /* LocationFoundedDelegate.swift */,
+			);
+			path = LoadingViewController;
+			sourceTree = "<group>";
+		};
+		F87CECD720C2E30000E80B5F /* SearchLocation */ = {
+			isa = PBXGroup;
+			children = (
+				F87CECD820C2E31600E80B5F /* SearchLocationTableViewCell.swift */,
+				F87CECDA20C2E33000E80B5F /* SearchLocationTableViewController.swift */,
+			);
+			path = SearchLocation;
+			sourceTree = "<group>";
+		};
 		F8BF088420A81A0800A21883 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +125,9 @@
 		F8BF088F20A81A0800A21883 /* GreyClouds */ = {
 			isa = PBXGroup;
 			children = (
+				F819D6EE20C31DBE00F0B22C /* LoadingViewController */,
+				F819D6E920C3046200F0B22C /* CoreData */,
+				F87CECD720C2E30000E80B5F /* SearchLocation */,
 				F8D604B420C191FF0043D1FB /* Places */,
 				F8D604B120C11DFB0043D1FB /* ForecastViews */,
 				F8D604B020C11DDB0043D1FB /* WeatherViews */,
@@ -94,7 +138,7 @@
 				F8BF089A20A81A0900A21883 /* Assets.xcassets */,
 				F8BF089C20A81A0900A21883 /* LaunchScreen.storyboard */,
 				F8BF089F20A81A0900A21883 /* Info.plist */,
-				F8BF089720A81A0800A21883 /* GreyClouds.xcdatamodeld */,
+				F819D6E420C300F800F0B22C /* GreyClouds.xcdatamodeld */,
 			);
 			path = GreyClouds;
 			sourceTree = "<group>";
@@ -134,6 +178,7 @@
 				F8D604B520C1921A0043D1FB /* PlacesTableViewController.swift */,
 				F8D604B720C199C60043D1FB /* CityTableViewCell.swift */,
 				F8D604B920C199D60043D1FB /* CitySettingsTableViewCell.swift */,
+				F819D6EC20C31A4000F0B22C /* ChangedPlacesDelegate.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -228,19 +273,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F819D6E620C300F800F0B22C /* GreyClouds.xcdatamodeld in Sources */,
 				F8BF089320A81A0800A21883 /* PageViewController.swift in Sources */,
 				F8F87A4F20BB05CD0020CAFA /* ForecastsTableViewController.swift in Sources */,
 				F810659720BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift in Sources */,
-				F8BF089920A81A0800A21883 /* GreyClouds.xcdatamodeld in Sources */,
+				F819D6EB20C3047B00F0B22C /* PlacesHandler.swift in Sources */,
 				F8D604B320C15E0D0043D1FB /* DayStatisticsTableViewCell.swift in Sources */,
+				F819D6ED20C31A4000F0B22C /* ChangedPlacesDelegate.swift in Sources */,
+				F819D6F020C31DDF00F0B22C /* LoadingViewController.swift in Sources */,
 				F8D604B620C1921A0043D1FB /* PlacesTableViewController.swift in Sources */,
 				F8BD66D420ADF53100114908 /* UIColor.swift in Sources */,
 				F8BF089120A81A0800A21883 /* AppDelegate.swift in Sources */,
+				F87CECDB20C2E33000E80B5F /* SearchLocationTableViewController.swift in Sources */,
+				F819D6F220C3245D00F0B22C /* LocationFoundedDelegate.swift in Sources */,
+				F819D6E820C303C900F0B22C /* CoreDataHandler.swift in Sources */,
 				F8D604B820C199C60043D1FB /* CityTableViewCell.swift in Sources */,
 				F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */,
 				F810659520BC5F3000DCB6EE /* HourForecastTableViewCell.swift in Sources */,
 				F8F87A4D20B936110020CAFA /* Double.swift in Sources */,
 				F8F87A4B20B92E470020CAFA /* WeatherItemTableViewCell.swift in Sources */,
+				F87CECD920C2E31600E80B5F /* SearchLocationTableViewCell.swift in Sources */,
 				F8D604BA20C199D60043D1FB /* CitySettingsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,12 +505,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F8BF089720A81A0800A21883 /* GreyClouds.xcdatamodeld */ = {
+		F819D6E420C300F800F0B22C /* GreyClouds.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F8BF089820A81A0800A21883 /* GreyClouds.xcdatamodel */,
+				F819D6E520C300F800F0B22C /* GreyClouds.xcdatamodel */,
 			);
-			currentVersion = F8BF089820A81A0800A21883 /* GreyClouds.xcdatamodel */;
+			currentVersion = F819D6E520C300F800F0B22C /* GreyClouds.xcdatamodel */;
 			path = GreyClouds.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

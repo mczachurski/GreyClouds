@@ -9,18 +9,30 @@
 import UIKit
 import ForecastIO
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, LocationFoundedDelegate, ChangedPlacesDelegate {
 
-    lazy var cities: [UIViewController] = {
-        return createCitiesWeatherViews()
-    }()
+    let placesHandler = PlacesHandler()
+    var cities:[UIViewController] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let settingsButton = UIButton(frame: CGRect(x: 20, y: 40, width: 30, height: 30))
+        settingsButton.setImage(UIImage(named: "settings"), for: UIControlState.normal)
+        // button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+
+        let citiesButton = UIButton(frame: CGRect(x: self.view.frame.size.width - 50, y: 40, width: 30, height: 30))
+        citiesButton.setImage(UIImage(named: "cities"), for: UIControlState.normal)
+        citiesButton.addTarget(self, action: #selector(openPlacesAction), for: .touchUpInside)
+
+        self.view.addSubview(settingsButton)
+        self.view.addSubview(citiesButton)
+
         // Page view controller.
         self.dataSource = self
         self.delegate = self
+
+        self.cities = createCitiesWeatherViews()
 
         // First view.
         if let first = cities.first {
@@ -40,25 +52,38 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
     }
 
+    @objc private func openPlacesAction() -> Void {
+        self.performSegue(withIdentifier: "placesSegue", sender: self)
+    }
+
     private func createCitiesWeatherViews() -> [UIViewController] {
 
-        let viewController1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "weatherViewController")
-        if let weatherViewController1 = viewController1 as? WeatherViewController {
-            weatherViewController1.city = "Wrocław"
-            weatherViewController1.latitiude = 51.146
-            weatherViewController1.longitude = 17.12
+        var views:[UIViewController] = []
+        let places = placesHandler.getPlaces()
+
+        if places.count == 0 {
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loadingViewController")
+
+            if let loadingViewController = viewController as? LoadingViewController {
+                loadingViewController.delegate = self
+            }
+
+            views.append(viewController)
+        } else {
+            for place in places {
+                let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "weatherViewController")
+
+                if let weatherViewController = viewController as? WeatherViewController {
+                    weatherViewController.city = place.name
+                    weatherViewController.latitiude = place.latitude
+                    weatherViewController.longitude = place.longitude
+                }
+
+                views.append(viewController)
+            }
         }
 
-        let viewController2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "weatherViewController")
-        if let weatherViewController2 = viewController2 as? WeatherViewController {
-            weatherViewController2.city = "London"
-            weatherViewController2.latitiude = 51.5073
-            weatherViewController2.longitude = -0.1276
-        }
-
-        return [
-            viewController1, viewController2
-        ]
+        return views
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -104,5 +129,34 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return cities.index(of: pageViewController) ?? 0
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "placesSegue" {
+            if let destination = segue.destination.childViewControllers.first as? PlacesTableViewController {
+                destination.delegate = self
+            }
+        }
+    }
+
+    func changedPlaces() {
+        self.reloadViewControllers()
+    }
+
+    func locationFounded() {
+        self.reloadViewControllers()
+    }
+
+    private func reloadViewControllers() {
+        self.cities = createCitiesWeatherViews()
+
+        self.dataSource = nil
+        self.dataSource = self
+
+        // First view.
+        if let first = cities.first {
+        setViewControllers([first], direction: .forward, animated: false, completion: nil)
+        }
+    }
+
 }
 
