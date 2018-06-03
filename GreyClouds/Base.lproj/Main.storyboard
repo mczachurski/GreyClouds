@@ -214,10 +214,10 @@
                                     <constraint firstAttribute="height" constant="100" id="xOn-GO-4rR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geolokalizowanie twojego położenia..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIx-MD-QO4">
-                                <rect key="frame" x="27" y="322" width="321" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting to satellites. Determining your location ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIx-MD-QO4">
+                                <rect key="frame" x="27" y="322" width="321" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="6j7-hl-BKf"/>
+                                    <constraint firstAttribute="height" constant="90" id="6j7-hl-BKf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" name="text"/>
@@ -643,11 +643,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHQ-WF-xdj">
-                                            <rect key="frame" x="16" y="11" width="31" height="21"/>
+                                            <rect key="frame" x="16" y="11" width="32.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="vBe-y8-9rG"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" name="text"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -749,9 +749,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4YX-2x-e37">
-                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="5" width="35.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" name="text"/>
                                             <nil key="highlightedColor"/>
                                         </label>

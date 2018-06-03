@@ -93,6 +93,10 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
             searchLocationTableViewCell.reloadView()
         }
 
+        let selectionColor = UIView()
+        selectionColor.backgroundColor = UIColor.light
+        cell.selectedBackgroundView = selectionColor
+
         return cell
     }
 
