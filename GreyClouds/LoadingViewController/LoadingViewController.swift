@@ -30,6 +30,12 @@ class LoadingViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
     func isAuthorizedtoGetUserLocation() {
         if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
             locationManager.requestWhenInUseAuthorization()

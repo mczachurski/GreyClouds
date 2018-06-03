@@ -66,7 +66,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ag6-gz-PvW">
                                         <rect key="frame" x="114" y="146" width="147.5" height="70"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partly-cloudy-day" translatesAutoresizingMaskIntoConstraints="NO" id="tWe-yY-cX4">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="satellite" translatesAutoresizingMaskIntoConstraints="NO" id="tWe-yY-cX4">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emW-6K-NxJ">
@@ -194,21 +194,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wczytywanie..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIx-MD-QO4">
-                                <rect key="frame" x="130" y="323" width="115" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZK-J4-XJQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="214" id="NEe-pt-NY7"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-top-clear" translatesAutoresizingMaskIntoConstraints="NO" id="ubc-Lr-r6W">
+                                <rect key="frame" x="0.0" y="214" width="375" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="QRE-yw-I9S"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="B7b-7y-DDy">
+                                <rect key="frame" x="137" y="183" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="tNl-vR-kBB"/>
+                                    <constraint firstAttribute="height" constant="100" id="xOn-GO-4rR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Geolokalizowanie twojego położenia..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIx-MD-QO4">
+                                <rect key="frame" x="27" y="322" width="321" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="6j7-hl-BKf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" name="text"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GZK-J4-XJQ" firstAttribute="leading" secondItem="MMc-BZ-p9r" secondAttribute="leading" id="1kZ-ge-Zoe"/>
+                            <constraint firstItem="HIx-MD-QO4" firstAttribute="top" secondItem="B7b-7y-DDy" secondAttribute="bottom" constant="39" id="515-90-Tfg"/>
+                            <constraint firstItem="ubc-Lr-r6W" firstAttribute="leading" secondItem="MMc-BZ-p9r" secondAttribute="leading" id="Cjv-lL-0pa"/>
+                            <constraint firstItem="B7b-7y-DDy" firstAttribute="centerX" secondItem="MMc-BZ-p9r" secondAttribute="centerX" id="FBS-vi-lhm"/>
+                            <constraint firstItem="GZK-J4-XJQ" firstAttribute="trailing" secondItem="MMc-BZ-p9r" secondAttribute="trailing" id="KoZ-wE-5C2"/>
+                            <constraint firstItem="ubc-Lr-r6W" firstAttribute="trailing" secondItem="MMc-BZ-p9r" secondAttribute="trailing" id="MvW-YC-DTN"/>
+                            <constraint firstItem="MMc-BZ-p9r" firstAttribute="trailing" secondItem="HIx-MD-QO4" secondAttribute="trailing" constant="27" id="Nyb-uo-Iac"/>
+                            <constraint firstItem="ubc-Lr-r6W" firstAttribute="top" secondItem="GZK-J4-XJQ" secondAttribute="bottom" id="WvB-Te-f8c"/>
+                            <constraint firstItem="HIx-MD-QO4" firstAttribute="leading" secondItem="MMc-BZ-p9r" secondAttribute="leading" constant="27" id="g5h-a3-SVi"/>
+                            <constraint firstItem="GZK-J4-XJQ" firstAttribute="top" secondItem="8dP-gj-d1T" secondAttribute="top" id="lFM-ZC-jls"/>
+                            <constraint firstItem="B7b-7y-DDy" firstAttribute="top" secondItem="MMc-BZ-p9r" secondAttribute="top" constant="163" id="vhJ-Oh-Z2O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MMc-BZ-p9r"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kw-TY-PWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="887"/>
+            <point key="canvasLocation" x="2756" y="886.50674662668678"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="C1G-Ob-tzt">
@@ -791,13 +826,14 @@
     <resources>
         <image name="add" width="30" height="30"/>
         <image name="background-top" width="375" height="20"/>
-        <image name="background-top-clear" width="187" height="10"/>
+        <image name="background-top-clear" width="375" height="20"/>
         <image name="clear-day" width="70" height="70"/>
         <image name="clear-day-small" width="50" height="50"/>
+        <image name="location" width="100" height="100"/>
         <image name="moon-0" width="30" height="30"/>
         <image name="navigation" width="15" height="15"/>
-        <image name="partly-cloudy-day" width="70" height="70"/>
         <image name="rain-1" width="75" height="15"/>
+        <image name="satellite" width="70" height="70"/>
         <image name="sunrise" width="30" height="30"/>
         <image name="sunset" width="30" height="30"/>
         <namedColor name="light">
@@ -808,6 +844,9 @@
         </namedColor>
         <namedColor name="text">
             <color red="0.37254901959999998" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text">
+            <color red="0.37254901960784315" green="0.37254901960784315" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
