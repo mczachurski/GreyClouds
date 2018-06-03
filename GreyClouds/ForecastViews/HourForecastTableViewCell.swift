@@ -14,33 +14,39 @@ class HourForecastTableViewCell: UITableViewCell {
     @IBOutlet private weak var hourLabelOutlet: UILabel!
     @IBOutlet private weak var temperatureLabelOutlet: UILabel!
     @IBOutlet private weak var imageOutlet: UIImageView!
-    @IBOutlet weak var precipProbabilityLabelOutlet: UILabel!
-    @IBOutlet weak var precipImageOutlet: UIImageView!
+    @IBOutlet private weak var precipProbabilityLabelOutlet: UILabel!
+    @IBOutlet private weak var precipImageOutlet: UIImageView!
 
-    public var forecastForHour: DataPoint? {
-        didSet {
+    public var place: Place?
+    public var forecastForHour: DataPoint?
 
-            guard let forecast = self.forecastForHour else {
-                return
-            }
-
-            let formatter = DateFormatter()
-            formatter.locale = Locale.current
-            formatter.dateStyle = .none
-            formatter.timeStyle = .short
-            self.hourLabelOutlet.text = formatter.string(from: forecast.time)
-
-            self.temperatureLabelOutlet.text = forecast.temperature?.toTemperature()
-
-            let imageName = (forecast.icon?.rawValue ?? "clear-day") + "-small"
-            self.imageOutlet.image = UIImage(named: imageName)
-
-            let precipProbabilityInteger = Int((forecast.precipitationProbability ?? 0) * 100)
-            self.precipProbabilityLabelOutlet.text = "\(precipProbabilityInteger)%"
-
-            let precipImageName = self.getPrecipImageName(precipProbabilityInteger: precipProbabilityInteger)
-            self.precipImageOutlet.image = UIImage(named: precipImageName)
+    public func reloadView() {
+        guard let forecast = self.forecastForHour else {
+            return
         }
+
+        guard let timeZoneIdentifier = place?.timeZoneIdentifier,
+            let timeZone = TimeZone(identifier: timeZoneIdentifier) else {
+                return
+        }
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.timeZone = timeZone
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        self.hourLabelOutlet.text = formatter.string(from: forecast.time)
+
+        self.temperatureLabelOutlet.text = forecast.temperature?.toTemperature()
+
+        let imageName = (forecast.icon?.rawValue ?? "clear-day") + "-small"
+        self.imageOutlet.image = UIImage(named: imageName)
+
+        let precipProbabilityInteger = Int((forecast.precipitationProbability ?? 0) * 100)
+        self.precipProbabilityLabelOutlet.text = "\(precipProbabilityInteger)%"
+
+        let precipImageName = self.getPrecipImageName(precipProbabilityInteger: precipProbabilityInteger)
+        self.precipImageOutlet.image = UIImage(named: precipImageName)
     }
 
     private func getPrecipImageName(precipProbabilityInteger: Int) -> String {

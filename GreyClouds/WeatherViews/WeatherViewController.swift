@@ -11,9 +11,7 @@ import ForecastIO
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    public var city: String?
-    public var latitiude: Double?
-    public var longitude: Double?
+    public var place: Place?
 
     @IBOutlet private weak var cityOutlet: UILabel!
     @IBOutlet private weak var summaryOutlet: UILabel!
@@ -23,6 +21,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet private weak var tableViewOutlet: UITableView!
 
     private let client = DarkSkyClient(apiKey: "2d8311164f8961ecd00c6571939b1737")
+    private var forecastDownloadedTime: Date?
+
     public var forecast: Forecast? {
         didSet {
             DispatchQueue.main.async {
@@ -41,10 +41,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-    private var forecastDownloadedTime: Date?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.dayDescriptionOutlet.text = NSLocalizedString("Loading weather...", comment: "Text before downloading weather")
+        self.summaryOutlet.text = ""
+        self.temperatureOutlet.text = "-"
 
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = self
@@ -54,18 +57,19 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        downloadForecast()
+        super.viewWillAppear(animated)
+
+        self.downloadForecast()
 
         if let selectedIndexPath = tableViewOutlet.indexPathForSelectedRow {
             tableViewOutlet.deselectRow(at: selectedIndexPath, animated: true)
         }
 
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     private func setConstantOutlets() {
-        self.cityOutlet?.text = self.city
+        self.cityOutlet?.text = self.place?.name
     }
 
     private func configureDarkSkyClient() {
@@ -81,7 +85,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     private func downloadForecast() {
 
-        guard let latitiude = self.latitiude, let longitude = self.longitude else {
+        guard let latitude = self.place?.latitude, let longitude = self.place?.longitude else {
             return
         }
 
@@ -89,7 +93,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
 
-        self.client.getForecast(latitude: latitiude, longitude: longitude, extendHourly: true) { result in
+        self.client.getForecast(latitude: latitude, longitude: longitude, extendHourly: true, excludeFields: [.minutely]) { result in
             switch result {
             case .success(let forecast, _):
                 self.forecastDownloadedTime = Date()
@@ -123,9 +127,11 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         let selectionColor = UIView()
         selectionColor.backgroundColor = UIColor.light
-
         weatherItemTableViewCell.selectedBackgroundView = selectionColor
+
+        weatherItemTableViewCell.place = self.place
         weatherItemTableViewCell.forecastForDay = self.forecast?.daily?.data[indexPath.row - 1]
+        weatherItemTableViewCell.reloadView()
 
         return weatherItemTableViewCell
     }
@@ -134,9 +140,9 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "forecast" {
             if let destination = segue.destination as? ForecastsTableViewController {
                 if let selectedPath = self.tableViewOutlet.indexPathForSelectedRow {
+                    destination.place = self.place
                     destination.forecastForDay = self.forecast?.daily?.data[selectedPath.row - 1]
                     destination.hourly = self.forecast?.hourly
-                    destination.city = self.city
                 }
             }
         }

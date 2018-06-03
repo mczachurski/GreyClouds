@@ -11,33 +11,11 @@ import ForecastIO
 
 class ForecastsTableViewController: UITableViewController {
 
-    public var city: String?
-    public var forecastForDay: DataPoint?
-    public var hourly: DataBlock? {
-        didSet {
-            self.hourlyForThisDay = []
-
-            guard let forecast = self.forecastForDay else {
-                return
-            }
-
-            guard let hours = hourly?.data else {
-                return
-            }
-
-            let calendar = Calendar.current
-            let forecastForDayInYear = calendar.component(.day, from: forecast.time)
-
-            for hour in hours {
-                let hourInDayInYear = calendar.component(.day, from: hour.time)
-                if forecastForDayInYear == hourInDayInYear {
-                    self.hourlyForThisDay.append(hour)
-                }
-            }
-        }
-    }
-
     private var hourlyForThisDay: [DataPoint] = []
+
+    public var place: Place?
+    public var forecastForDay: DataPoint?
+    public var hourly: DataBlock?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +25,44 @@ class ForecastsTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.reloadView()
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-        self.navigationItem.title = self.city
+        self.navigationItem.title = self.place?.name
+    }
+
+    func reloadView() {
+        self.hourlyForThisDay = []
+
+        guard let forecast = self.forecastForDay else {
+            return
+        }
+
+        guard let hours = hourly?.data else {
+            return
+        }
+
+        guard let timeZoneIdentifier = place?.timeZoneIdentifier,
+            let timeZone = TimeZone(identifier: timeZoneIdentifier) else {
+                return
+        }
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.timeZone = timeZone
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+
+        let forecastForDay = formatter.string(from: forecast.time)
+
+        for hour in hours {
+            let hourForDay = formatter.string(from: hour.time)
+            if forecastForDay == hourForDay {
+                self.hourlyForThisDay.append(hour)
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -88,15 +101,20 @@ class ForecastsTableViewController: UITableViewController {
         switch indexPath.section {
         case 0:
             if let dayDetailsCell = cell as? DayDetailsTableViewCell {
+                dayDetailsCell.place = self.place
                 dayDetailsCell.forecastForDay = self.forecastForDay
+                dayDetailsCell.reloadView()
             }
         case 1:
             if let hourForecastCell = cell as? HourForecastTableViewCell {
+                hourForecastCell.place = self.place
                 hourForecastCell.forecastForHour = self.hourlyForThisDay[indexPath.row]
+                hourForecastCell.reloadView()
             }
         default:
             if let dayStatisticsCell = cell as? DayStatisticsTableViewCell {
                 dayStatisticsCell.forecastForDay = self.hourlyForThisDay[indexPath.row]
+                dayStatisticsCell.reloadView()
             }
         }
 

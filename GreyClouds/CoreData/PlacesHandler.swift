@@ -11,6 +11,7 @@ import CoreData
 import UIKit
 
 class PlacesHandler {
+
     func createPlaceEntity() -> Place {
         let context = CoreDataHandler.shared.getManagedObjectContext()
         return Place(context: context)

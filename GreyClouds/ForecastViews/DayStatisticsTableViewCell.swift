@@ -18,33 +18,32 @@ class DayStatisticsTableViewCell: UITableViewCell {
     @IBOutlet private weak var uvIndexLabelOutlet: UILabel!
     @IBOutlet private weak var visibilityLabelOutlet: UILabel!
 
-    public var forecastForDay: DataPoint? {
-        didSet {
+    public var forecastForDay: DataPoint?
 
-            guard let forecast = self.forecastForDay else {
-                return
-            }
+    public func reloadView() {
+        guard let forecast = self.forecastForDay else {
+            return
+        }
 
-            let pressure = Int(forecast.pressure ?? 0)
-            self.pressureLabelOutlet.text = "\(pressure) hPa"
+        let pressure = Int(forecast.pressure ?? 0)
+        self.pressureLabelOutlet.text = "\(pressure) hPa"
 
-            let precipitationProbability = Int((forecast.precipitationProbability ?? 0) * 100)
-            self.precipProbabilityLabelOutlet.text = "\(precipitationProbability) %"
+        let precipitationProbability = Int((forecast.precipitationProbability ?? 0) * 100)
+        self.precipProbabilityLabelOutlet.text = "\(precipitationProbability) %"
 
-            let windSpeed = Int(forecast.windSpeed ?? 0)
-            self.windSpeedLabelOutlet.text = "\(windSpeed) kmph"
+        let windSpeed = Int(forecast.windSpeed ?? 0)
+        self.windSpeedLabelOutlet.text = "\(windSpeed) kmph"
 
-            let humidity = Int((forecast.humidity ?? 0) * 100)
-            self.humidityLabelOutlet.text = "\(humidity) %"
+        let humidity = Int((forecast.humidity ?? 0) * 100)
+        self.humidityLabelOutlet.text = "\(humidity) %"
 
-            let uvIndex = Int(forecast.uvIndex ?? 0)
-            self.uvIndexLabelOutlet.text = "\(uvIndex)"
+        let uvIndex = Int(forecast.uvIndex ?? 0)
+        self.uvIndexLabelOutlet.text = "\(uvIndex)"
 
-            if let visibility = forecast.visibility {
-                self.visibilityLabelOutlet.text = "\(Int(visibility)) km"
-            } else {
-                self.visibilityLabelOutlet.text = "- km"
-            }
+        if let visibility = forecast.visibility {
+            self.visibilityLabelOutlet.text = "\(Int(visibility)) km"
+        } else {
+            self.visibilityLabelOutlet.text = "- km"
         }
     }
 }

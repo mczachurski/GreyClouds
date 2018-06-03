@@ -13,43 +13,37 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
 
     let searchController = UISearchController(searchResultsController: nil)
     let placesHandler = PlacesHandler()
+    let geocoder = CLGeocoder()
     var foundedPlacemarks:[CLPlacemark] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search location"
+        searchController.searchBar.placeholder = NSLocalizedString("Enter location", comment: "Text in search placeholder")
         searchController.searchBar.tintColor = UIColor.main
 
         self.navigationItem.searchController = searchController
         self.definesPresentationContext = true
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.clearsSelectionOnViewWillAppear = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         navigationItem.hidesSearchBarWhenScrolling = false
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         navigationItem.hidesSearchBarWhenScrolling = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - UISearchResultsUpdating Delegate
+
     func updateSearchResults(for searchController: UISearchController) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.getCoordinate), object: self.searchController.searchBar)
         self.perform(#selector(self.getCoordinate), with: self.searchController.searchBar, afterDelay: 0.5)
@@ -63,7 +57,6 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
             return
         }
 
-        let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(searchText) { (placemarks, error) in
 
             if error != nil {
@@ -97,6 +90,7 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
 
         if let searchLocationTableViewCell = cell as? SearchLocationTableViewCell {
             searchLocationTableViewCell.placemark = self.foundedPlacemarks[indexPath.row]
+            searchLocationTableViewCell.reloadView()
         }
 
         return cell
@@ -105,31 +99,24 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placemark = self.foundedPlacemarks[indexPath.row]
 
-        guard let latitiude = placemark.location?.coordinate.latitude,
-            let longitude = placemark.location?.coordinate.longitude else {
+        guard let latitude = placemark.location?.coordinate.latitude,
+              let longitude = placemark.location?.coordinate.longitude,
+              let timeZone = placemark.timeZone,
+              let locality = placemark.locality,
+              let country = placemark.country else {
+                // TODO: Information about errro.
                 return
         }
         
         let place = self.placesHandler.createPlaceEntity()
         place.id = UUID()
-        place.name = placemark.locality
-        place.country = placemark.country
-        place.latitude = latitiude
+        place.name = locality
+        place.country = country
+        place.timeZoneIdentifier = timeZone.identifier
+        place.latitude = latitude
         place.longitude = longitude
 
         CoreDataHandler.shared.saveContext()
-
         self.navigationController?.popViewController(animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

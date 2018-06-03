@@ -74,9 +74,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
                 let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "weatherViewController")
 
                 if let weatherViewController = viewController as? WeatherViewController {
-                    weatherViewController.city = place.name
-                    weatherViewController.latitiude = place.latitude
-                    weatherViewController.longitude = place.longitude
+                    weatherViewController.place = place
                 }
 
                 views.append(viewController)

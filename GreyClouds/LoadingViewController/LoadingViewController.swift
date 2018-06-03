@@ -42,32 +42,37 @@ class LoadingViewController: UIViewController, CLLocationManagerDelegate {
         }
 
         geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
-            if error == nil {
-                if let firstLocation = placemarks?.first,
-                    let latitude = firstLocation.location?.coordinate.latitude,
-                    let longitude = firstLocation.location?.coordinate.longitude {
 
-                    let place = self.placesHandler.createPlaceEntity()
-                    place.id = UUID()
-                    place.name = firstLocation.locality
-                    place.country = firstLocation.country
-                    place.isAutomaticLocation = true
-                    place.latitude = latitude
-                    place.longitude = longitude
-
-                    CoreDataHandler.shared.saveContext()
-
-                    self.locationManager.stopUpdatingLocation()
-                    self.delegate?.locationFounded()
-                }
+            if error != nil {
+                return
             }
-            else {
-                // An error occurred during geocoding.
+
+            guard let placemark = placemarks?.first,
+                  let latitude = placemark.location?.coordinate.latitude,
+                  let longitude = placemark.location?.coordinate.longitude,
+                  let timeZone = placemark.timeZone,
+                  let locality = placemark.locality,
+                  let country = placemark.country else {
+                    // TODO: Information about errro.
+                    return
             }
+
+            let place = self.placesHandler.createPlaceEntity()
+            place.isAutomaticLocation = true
+            place.id = UUID()
+            place.name = locality
+            place.country = country
+            place.timeZoneIdentifier = timeZone.identifier
+            place.latitude = latitude
+            place.longitude = longitude
+
+            CoreDataHandler.shared.saveContext()
+
+            self.locationManager.stopUpdatingLocation()
+            self.delegate?.locationFounded()
         })
     }
 
-    //this method will be called each time when a user change his location access preference.
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             print("User allowed us to access location")

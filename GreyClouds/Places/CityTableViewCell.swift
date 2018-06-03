@@ -9,7 +9,18 @@
 import UIKit
 
 class CityTableViewCell: UITableViewCell {
-    @IBOutlet weak var cityLabelOutlet: UILabel!
-    @IBOutlet weak var countryLabelOutlet: UILabel!
-    @IBOutlet weak var navigationImageOutlet: UIImageView!
+
+    @IBOutlet private weak var cityLabelOutlet: UILabel!
+    @IBOutlet private weak var countryLabelOutlet: UILabel!
+    @IBOutlet private weak var navigationImageOutlet: UIImageView!
+
+    public var place: Place?
+
+    public func reloadView() {
+        self.cityLabelOutlet.text = place?.name
+        self.countryLabelOutlet.text = place?.country
+        if let isAutomatic = self.place?.isAutomaticLocation {
+            self.navigationImageOutlet.isHidden = !isAutomatic
+        }
+    }
 }

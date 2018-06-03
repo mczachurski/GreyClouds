@@ -11,10 +11,10 @@ import CoreLocation
 
 class SearchLocationTableViewCell: UITableViewCell {
 
-    public var placemark:CLPlacemark? {
-        didSet {
-            self.textLabel?.text = self.placemark?.name
-            self.detailTextLabel?.text = self.placemark?.country
-        }
+    public var placemark:CLPlacemark?
+
+    public func reloadView() {
+        self.textLabel?.text = self.placemark?.name
+        self.detailTextLabel?.text = self.placemark?.country
     }
 }

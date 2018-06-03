@@ -10,32 +10,38 @@ import UIKit
 import ForecastIO
 
 class WeatherItemTableViewCell: UITableViewCell {
+
     @IBOutlet private weak var iconImageOutlet: UIImageView!
     @IBOutlet private weak var dayNameLabelOutlet: UILabel!
     @IBOutlet private weak var temperatureLabelOutlet: UILabel!
     @IBOutlet private weak var dayDateLabelOutlet: UILabel!
-    
 
-    public var forecastForDay: DataPoint? {
-        didSet {
+    public var place: Place?
+    public var forecastForDay: DataPoint?
 
-            guard let forecast = self.forecastForDay else {
-                return
-            }
-
-            iconImageOutlet.image = UIImage.init(named: forecast.icon?.rawValue ?? "clear-day")
-            temperatureLabelOutlet.text = forecast.temperatureHigh?.toTemperature()
-
-            let formatter = DateFormatter()
-            formatter.locale = Locale.current
-
-            formatter.dateFormat = "EEEE"
-            let dayName = formatter.string(from: forecast.time)
-            dayNameLabelOutlet.text = dayName.capitalized
-
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
-            dayDateLabelOutlet.text = formatter.string(from: forecast.time)
+    public func reloadView() {
+        guard let forecast = self.forecastForDay else {
+            return
         }
+
+        guard let timeZoneIdentifier = place?.timeZoneIdentifier,
+            let timeZone = TimeZone(identifier: timeZoneIdentifier) else {
+                return
+        }
+
+        iconImageOutlet.image = UIImage.init(named: forecast.icon?.rawValue ?? "clear-day")
+        temperatureLabelOutlet.text = forecast.temperatureHigh?.toTemperature()
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.timeZone = timeZone
+
+        formatter.dateFormat = "EEEE"
+        let dayName = formatter.string(from: forecast.time)
+        dayNameLabelOutlet.text = dayName.capitalized
+
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        dayDateLabelOutlet.text = formatter.string(from: forecast.time)
     }
 }

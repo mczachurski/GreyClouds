@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.pageIndicatorTintColor = UIColor.lightGray
         appearance.currentPageIndicatorTintColor = UIColor.black
 
+        UINavigationBar.appearance().shadowImage = UIImage()
+
         window?.backgroundColor = UIColor.white
 
         return true

@@ -7,9 +7,10 @@
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="timeZoneIdentifier" attributeType="String" syncable="YES"/>
         <attribute name="weather" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Place" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Place" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

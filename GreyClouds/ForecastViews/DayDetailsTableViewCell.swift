@@ -20,38 +20,44 @@ class DayDetailsTableViewCell: UITableViewCell {
     @IBOutlet private weak var lowTemperatureLabelOutlet: UILabel!
     @IBOutlet private weak var moonIconOutlet: UIImageView!
 
-    public var forecastForDay: DataPoint? {
-        didSet {
+    public var place: Place?
+    public var forecastForDay: DataPoint?
 
-            guard let forecast = self.forecastForDay else {
-                return
-            }
-
-            self.imageOutlet.image = UIImage(named: forecast.icon?.rawValue ?? "clear-day")
-            self.highTemperatureLabelOutlet.text = forecast.temperatureHigh?.toTemperature()
-            self.lowTemperatureLabelOutlet.text = forecast.temperatureLow?.toTemperature()
-            self.summaryLabelOutlet.text = forecast.summary
-
-            let formatter = DateFormatter()
-            formatter.locale = Locale.current
-            formatter.dateStyle = .short
-            formatter.timeStyle = .short
-
-            if let sunriseTime = forecast.sunriseTime {
-                self.sunriseLabelOutlet.text = formatter.string(from: sunriseTime)
-            }
-
-            if let sunsetTime = forecast.sunsetTime {
-                self.sunsetLabelOutlet.text = formatter.string(from: sunsetTime)
-            }
-
-            formatter.dateFormat = "EEEE"
-            let dayName = formatter.string(from: forecast.time)
-            self.dayNameLabelOutlet.text = dayName.uppercased()
-
-            let moonPhaseIconName = self.getMoonPhaseImageName(moonPhase: forecast.moonPhase)
-            self.moonIconOutlet.image = UIImage(named: moonPhaseIconName)
+    public func reloadView() {
+        guard let forecast = self.forecastForDay else {
+            return
         }
+
+        self.imageOutlet.image = UIImage(named: forecast.icon?.rawValue ?? "clear-day")
+        self.highTemperatureLabelOutlet.text = forecast.temperatureHigh?.toTemperature()
+        self.lowTemperatureLabelOutlet.text = forecast.temperatureLow?.toTemperature()
+        self.summaryLabelOutlet.text = forecast.summary
+
+        let moonPhaseIconName = self.getMoonPhaseImageName(moonPhase: forecast.moonPhase)
+        self.moonIconOutlet.image = UIImage(named: moonPhaseIconName)
+
+        guard let timeZoneIdentifier = place?.timeZoneIdentifier,
+            let timeZone = TimeZone(identifier: timeZoneIdentifier) else {
+                return
+        }
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.timeZone = timeZone
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+
+        if let sunriseTime = forecast.sunriseTime {
+            self.sunriseLabelOutlet.text = formatter.string(from: sunriseTime)
+        }
+
+        if let sunsetTime = forecast.sunsetTime {
+            self.sunsetLabelOutlet.text = formatter.string(from: sunsetTime)
+        }
+
+        formatter.dateFormat = "EEEE"
+        let dayName = formatter.string(from: forecast.time)
+        self.dayNameLabelOutlet.text = dayName.uppercased()
     }
 
     private func getMoonPhaseImageName(moonPhase: Double?) -> String {
