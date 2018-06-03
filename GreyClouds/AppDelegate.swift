@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         let appearance =  UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
-        appearance.pageIndicatorTintColor = UIColor.lightGray
-        appearance.currentPageIndicatorTintColor = UIColor.black
+        appearance.pageIndicatorTintColor = UIColor.light
+        appearance.currentPageIndicatorTintColor = UIColor.main
 
         UINavigationBar.appearance().shadowImage = UIImage()
 

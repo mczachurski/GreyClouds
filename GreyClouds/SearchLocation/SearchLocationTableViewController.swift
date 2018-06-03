@@ -18,11 +18,13 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = NSLocalizedString("Enter location", comment: "Text in search placeholder")
         searchController.searchBar.tintColor = UIColor.main
+        searchController.searchBar.barTintColor = UIColor.main
 
         self.navigationItem.searchController = searchController
         self.definesPresentationContext = true
@@ -77,6 +79,10 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
 
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -102,23 +108,12 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placemark = self.foundedPlacemarks[indexPath.row]
+        let place = self.placesHandler.createPlaceEntity(from: placemark)
 
-        guard let latitude = placemark.location?.coordinate.latitude,
-              let longitude = placemark.location?.coordinate.longitude,
-              let timeZone = placemark.timeZone,
-              let locality = placemark.locality,
-              let country = placemark.country else {
-                // TODO: Information about errro.
-                return
+        guard place != nil else {
+            // TODO: Show error.
+            return
         }
-        
-        let place = self.placesHandler.createPlaceEntity()
-        place.id = UUID()
-        place.name = locality
-        place.country = country
-        place.timeZoneIdentifier = timeZone.identifier
-        place.latitude = latitude
-        place.longitude = longitude
 
         CoreDataHandler.shared.saveContext()
         self.navigationController?.popViewController(animated: true)

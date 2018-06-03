@@ -55,9 +55,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading weather..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLc-1D-ddR" userLabel="Day Description Outlet">
-                                        <rect key="frame" x="20" y="226" width="343" height="33"/>
+                                        <rect key="frame" x="20" y="226" width="343" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="33" id="7xc-hb-x8i"/>
+                                            <constraint firstAttribute="height" constant="34" id="7xc-hb-x8i"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="text"/>
@@ -278,9 +278,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conditions..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9c-gg-bsU">
-                                            <rect key="frame" x="16" y="111" width="343" height="21"/>
+                                            <rect key="frame" x="16" y="103" width="343" height="34"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="wqW-Ve-1DS"/>
+                                                <constraint firstAttribute="height" constant="34" id="wqW-Ve-1DS"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" name="text"/>
@@ -368,7 +368,7 @@
                                         <constraint firstItem="VR8-Uc-Jhw" firstAttribute="trailing" secondItem="erT-ct-mev" secondAttribute="trailingMargin" id="dxq-qV-GwC"/>
                                         <constraint firstItem="0by-WG-XLa" firstAttribute="top" secondItem="erT-ct-mev" secondAttribute="topMargin" constant="20" id="fJT-Dq-o7l"/>
                                         <constraint firstItem="z9c-gg-bsU" firstAttribute="leading" secondItem="erT-ct-mev" secondAttribute="leadingMargin" id="lCm-Eb-qWs"/>
-                                        <constraint firstItem="z9c-gg-bsU" firstAttribute="top" secondItem="0by-WG-XLa" secondAttribute="bottom" constant="10" id="lt0-ik-sUG"/>
+                                        <constraint firstItem="z9c-gg-bsU" firstAttribute="top" secondItem="0by-WG-XLa" secondAttribute="bottom" constant="2" id="lt0-ik-sUG"/>
                                         <constraint firstItem="CHT-JY-QgB" firstAttribute="leading" secondItem="0by-WG-XLa" secondAttribute="trailing" constant="8" id="mI6-u9-ZcO"/>
                                         <constraint firstAttribute="trailing" secondItem="mJE-Qo-x0A" secondAttribute="trailing" id="oqK-PR-Q6d"/>
                                         <constraint firstItem="mJE-Qo-x0A" firstAttribute="top" secondItem="VR8-Uc-Jhw" secondAttribute="bottom" constant="8" id="qve-zE-VVe"/>
@@ -736,27 +736,27 @@
         <scene sceneID="dL1-QQ-lPU">
             <objects>
                 <tableViewController storyboardIdentifier="searchLocation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="baK-Wz-g9n" customClass="SearchLocationTableViewController" customModule="GreyClouds" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jVB-Dg-Phm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jVB-Dg-Phm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchLocationCell" textLabel="4YX-2x-e37" detailTextLabel="yxp-9f-5Sg" style="IBUITableViewCellStyleSubtitle" id="gfg-I3-Tqr" customClass="SearchLocationTableViewCell" customModule="GreyClouds" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchLocationCell" textLabel="4YX-2x-e37" detailTextLabel="yxp-9f-5Sg" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="gfg-I3-Tqr" customClass="SearchLocationTableViewCell" customModule="GreyClouds" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gfg-I3-Tqr" id="THM-md-Grt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4YX-2x-e37">
-                                            <rect key="frame" x="16" y="5" width="35.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="10" width="35.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" name="text"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yxp-9f-5Sg">
-                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="16" y="33.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" name="text"/>

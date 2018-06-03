@@ -49,28 +49,16 @@ class LoadingViewController: UIViewController, CLLocationManagerDelegate {
 
         geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
 
-            if error != nil {
+            guard error == nil, let placemark = placemarks?.first else {
+                // TODO: Show error.
                 return
             }
 
-            guard let placemark = placemarks?.first,
-                  let latitude = placemark.location?.coordinate.latitude,
-                  let longitude = placemark.location?.coordinate.longitude,
-                  let timeZone = placemark.timeZone,
-                  let locality = placemark.locality,
-                  let country = placemark.country else {
-                    // TODO: Information about errro.
-                    return
+            let place = self.placesHandler.createPlaceEntity(from: placemark)
+            guard place != nil else {
+                // TODO: Show error.
+                return
             }
-
-            let place = self.placesHandler.createPlaceEntity()
-            place.isAutomaticLocation = true
-            place.id = UUID()
-            place.name = locality
-            place.country = country
-            place.timeZoneIdentifier = timeZone.identifier
-            place.latitude = latitude
-            place.longitude = longitude
 
             CoreDataHandler.shared.saveContext()
 
