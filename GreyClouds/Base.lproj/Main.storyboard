@@ -703,10 +703,25 @@
                                                 <action selector="addAction:" destination="eC2-yG-Wm8" eventType="touchUpInside" id="MrR-X9-ZdJ"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOg-MQ-tYS">
+                                            <rect key="frame" x="241" y="7" width="72" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="57N-q1-rYk"/>
+                                            </constraints>
+                                            <state key="normal" title="New place">
+                                                <color key="titleColor" name="main"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addAction:" destination="eC2-yG-Wm8" eventType="touchUpInside" id="apM-qX-US0"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="7an-ka-TkH" secondAttribute="trailing" constant="24" id="8Rd-il-qjn"/>
                                         <constraint firstItem="7an-ka-TkH" firstAttribute="centerY" secondItem="cFs-dE-ONB" secondAttribute="centerY" id="D0c-UT-MUE"/>
+                                        <constraint firstItem="sOg-MQ-tYS" firstAttribute="leading" relation="lessThanOrEqual" secondItem="cFs-dE-ONB" secondAttribute="leading" constant="244" id="Pkx-6e-zo8"/>
+                                        <constraint firstItem="7an-ka-TkH" firstAttribute="leading" secondItem="sOg-MQ-tYS" secondAttribute="trailing" constant="8" id="UHa-Sq-cwm"/>
+                                        <constraint firstItem="sOg-MQ-tYS" firstAttribute="centerY" secondItem="cFs-dE-ONB" secondAttribute="centerY" id="d9g-5I-Bbj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -838,6 +853,9 @@
         <image name="sunset" width="30" height="30"/>
         <namedColor name="light">
             <color red="0.94117647058823528" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="main">
+            <color red="0.94117647058823528" green="0.25098039215686274" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="main">
             <color red="0.94117647058823528" green="0.25098039215686274" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

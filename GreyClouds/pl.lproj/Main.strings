@@ -1,3 +1,4 @@
+/* Labels. */
 "uy7-5M-YgQ.text" = "Wiatr";
 "d7f-7s-Tu7.text" = "Ciśnienie";
 "RTv-4I-B13.text" = "Możliwy deszcz";
@@ -6,5 +7,10 @@
 "TYI-80-L30.text" = "Widoczność";
 "HIx-MD-QO4.text" = "Nawiązywanie połączenia z satelitami. Wyznaczanie twojego położenia...";
 
+/* Buttons. */
+"sOg-MQ-tYS.normalTitle" = "Nowe miejsce";
+
+/* Navigation title. */
 "fXO-98-kem.title" = "Miejsca";
 "0tW-J0-yJz.title" = "Szukaj";
+
