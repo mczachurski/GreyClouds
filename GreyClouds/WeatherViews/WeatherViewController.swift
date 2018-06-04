@@ -33,7 +33,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
 
                 if let icon = self.forecast?.currently?.icon?.rawValue {
-                    self.iconOutlet.image = UIImage(named: icon)
+                    self.iconOutlet.image = Image.image(forName: icon)
                 }
 
                 self.dayDescriptionOutlet.text = self.forecast?.daily?.summary
@@ -48,6 +48,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.dayDescriptionOutlet.text = NSLocalizedString("Loading weather...", comment: "Text before downloading weather")
         self.summaryOutlet.text = ""
         self.temperatureOutlet.text = "-"
+        self.iconOutlet.image = Image.image(forName: "satellite")
 
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = self

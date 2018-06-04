@@ -29,7 +29,7 @@ class WeatherItemTableViewCell: UITableViewCell {
                 return
         }
 
-        iconImageOutlet.image = UIImage.init(named: forecast.icon?.rawValue ?? "clear-day")
+        iconImageOutlet.image = Image.image(forName: forecast.icon?.rawValue ?? "clear-day")
         temperatureLabelOutlet.text = forecast.temperatureHigh?.toTemperature()
 
         let formatter = DateFormatter()

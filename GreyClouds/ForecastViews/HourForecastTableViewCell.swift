@@ -39,8 +39,8 @@ class HourForecastTableViewCell: UITableViewCell {
 
         self.temperatureLabelOutlet.text = forecast.temperature?.toTemperature()
 
-        let imageName = (forecast.icon?.rawValue ?? "clear-day") + "-small"
-        self.imageOutlet.image = UIImage(named: imageName)
+        let imageName = (forecast.icon?.rawValue ?? "clear-day")
+        self.imageOutlet.image = Image.image(forName: imageName, withSize: ImageSize.small)
 
         let precipProbabilityInteger = Int((forecast.precipitationProbability ?? 0) * 100)
         self.precipProbabilityLabelOutlet.text = "\(precipProbabilityInteger)%"

@@ -19,6 +19,8 @@ class DayDetailsTableViewCell: UITableViewCell {
     @IBOutlet private weak var sunsetLabelOutlet: UILabel!
     @IBOutlet private weak var lowTemperatureLabelOutlet: UILabel!
     @IBOutlet private weak var moonIconOutlet: UIImageView!
+    @IBOutlet private weak var sunriseImageOutlet: UIImageView!
+    @IBOutlet private weak var sunsetImageOutlet: UIImageView!
 
     public var place: Place?
     public var forecastForDay: DataPoint?
@@ -28,7 +30,7 @@ class DayDetailsTableViewCell: UITableViewCell {
             return
         }
 
-        self.imageOutlet.image = UIImage(named: forecast.icon?.rawValue ?? "clear-day")
+        self.imageOutlet.image = Image.image(forName: forecast.icon?.rawValue ?? "clear-day")
         self.highTemperatureLabelOutlet.text = forecast.temperatureHigh?.toTemperature()
         self.lowTemperatureLabelOutlet.text = forecast.temperatureLow?.toTemperature()
         self.summaryLabelOutlet.text = forecast.summary
@@ -58,6 +60,9 @@ class DayDetailsTableViewCell: UITableViewCell {
         formatter.dateFormat = "EEEE"
         let dayName = formatter.string(from: forecast.time)
         self.dayNameLabelOutlet.text = dayName.uppercased()
+
+        self.sunriseImageOutlet.image = Image.image(forName: "sunrise")
+        self.sunsetImageOutlet.image = Image.image(forName: "sunset")
     }
 
     private func getMoonPhaseImageName(moonPhase: Double?) -> String {
