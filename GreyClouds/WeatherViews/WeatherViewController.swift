@@ -20,7 +20,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet private weak var dayDescriptionOutlet: UILabel!
     @IBOutlet private weak var tableViewOutlet: UITableView!
 
-    private let client = DarkSkyClient(apiKey: "2d8311164f8961ecd00c6571939b1737")
+    private let client = DarkSkyClient(apiKey: "")
     private var forecastDownloadedTime: Date?
 
     public var forecast: Forecast? {
