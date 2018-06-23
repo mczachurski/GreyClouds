@@ -11,8 +11,12 @@ import CoreLocation
 
 class SearchLocationTableViewCell: UITableViewCell {
 
+    // MARK: - Public properties.
+    
     public var placemark:CLPlacemark?
 
+    // MARK: - Reload view cell.
+    
     public func reloadView() {
         self.textLabel?.text = self.placemark?.name
         self.detailTextLabel?.text = self.placemark?.country

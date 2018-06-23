@@ -11,6 +11,13 @@ import ForecastIO
 
 class DayDetailsTableViewCell: UITableViewCell {
 
+    // MARK: - Public properties.
+
+    public var place: Place?
+    public var forecastForDay: DataPoint?
+
+    // MARK: - Private properties.
+
     @IBOutlet private weak var dayNameLabelOutlet: UILabel!
     @IBOutlet private weak var imageOutlet: UIImageView!
     @IBOutlet private weak var highTemperatureLabelOutlet: UILabel!
@@ -22,8 +29,7 @@ class DayDetailsTableViewCell: UITableViewCell {
     @IBOutlet private weak var sunriseImageOutlet: UIImageView!
     @IBOutlet private weak var sunsetImageOutlet: UIImageView!
 
-    public var place: Place?
-    public var forecastForDay: DataPoint?
+    // MARK: - Reload view cell.
 
     public func reloadView() {
         guard let forecast = self.forecastForDay else {
@@ -43,22 +49,16 @@ class DayDetailsTableViewCell: UITableViewCell {
                 return
         }
 
-        let formatter = DateFormatter()
-        formatter.locale = Locale.current
-        formatter.timeZone = timeZone
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-
+        let formatter = DateFormatter(timeZone: timeZone)
         if let sunriseTime = forecast.sunriseTime {
-            self.sunriseLabelOutlet.text = formatter.string(from: sunriseTime)
+            self.sunriseLabelOutlet.text = formatter.getShortDateTime(from: sunriseTime)
         }
 
         if let sunsetTime = forecast.sunsetTime {
-            self.sunsetLabelOutlet.text = formatter.string(from: sunsetTime)
+            self.sunsetLabelOutlet.text = formatter.getShortDateTime(from: sunsetTime)
         }
 
-        formatter.dateFormat = "EEEE"
-        let dayName = formatter.string(from: forecast.time)
+        let dayName = formatter.getDayName(from: forecast.time)
         self.dayNameLabelOutlet.text = dayName.uppercased()
 
         self.sunriseImageOutlet.image = Image.image(forName: "sunrise")

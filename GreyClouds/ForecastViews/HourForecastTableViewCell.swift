@@ -11,14 +11,20 @@ import ForecastIO
 
 class HourForecastTableViewCell: UITableViewCell {
 
+    // MARK: - Public properties.
+    
+    public var place: Place?
+    public var forecastForHour: DataPoint?
+
+    // MARK: - Private properties.
+
     @IBOutlet private weak var hourLabelOutlet: UILabel!
     @IBOutlet private weak var temperatureLabelOutlet: UILabel!
     @IBOutlet private weak var imageOutlet: UIImageView!
     @IBOutlet private weak var precipProbabilityLabelOutlet: UILabel!
     @IBOutlet private weak var precipImageOutlet: UIImageView!
 
-    public var place: Place?
-    public var forecastForHour: DataPoint?
+    // MARK: - Reload view cell.
 
     public func reloadView() {
         guard let forecast = self.forecastForHour else {
@@ -30,12 +36,8 @@ class HourForecastTableViewCell: UITableViewCell {
                 return
         }
 
-        let formatter = DateFormatter()
-        formatter.locale = Locale.current
-        formatter.timeZone = timeZone
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        self.hourLabelOutlet.text = formatter.string(from: forecast.time)
+        let formatter = DateFormatter(timeZone: timeZone)
+        self.hourLabelOutlet.text = formatter.getShortTime(from: forecast.time)
 
         self.temperatureLabelOutlet.text = forecast.temperature?.toTemperature()
 

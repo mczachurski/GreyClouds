@@ -10,11 +10,17 @@ import UIKit
 
 class CityTableViewCell: UITableViewCell {
 
+    // MARK: - Public properties.
+
+    public var place: Place?
+
+    // MARK: - Private properties.
+
     @IBOutlet private weak var cityLabelOutlet: UILabel!
     @IBOutlet private weak var countryLabelOutlet: UILabel!
     @IBOutlet private weak var navigationImageOutlet: UIImageView!
 
-    public var place: Place?
+    // MARK: - Reload view cell.
 
     public func reloadView() {
         self.cityLabelOutlet.text = place?.name

@@ -9,13 +9,19 @@
 import UIKit
 import CoreLocation
 
-class LoadingViewController: UIViewController, CLLocationManagerDelegate {
+class LoadingViewController: UIViewController {
 
-    let locationManager = CLLocationManager()
-    let geocoder = CLGeocoder()
-    let placesHandler = PlacesHandler()
+    // MARK: - Public properties.
 
     public weak var delegate: LocationFoundedDelegate?
+
+    // MARK: - Private properties.
+    
+    private let locationManager = CLLocationManager()
+    private let geocoder = CLGeocoder()
+    private let placesHandler = PlacesHandler()
+
+    // MARK: - View controller.
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +38,18 @@ class LoadingViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    func isAuthorizedtoGetUserLocation() {
+    private func isAuthorizedtoGetUserLocation() {
         if CLLocationManager.authorizationStatus() != .authorizedWhenInUse     {
             locationManager.requestWhenInUseAuthorization()
         }
     }
+}
+
+// MARK: - Location manager delegate.
+extension LoadingViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = manager.location else {

@@ -9,12 +9,16 @@
 import UIKit
 import CoreLocation
 
-class SearchLocationTableViewController: UITableViewController, UISearchResultsUpdating {
+class SearchLocationTableViewController: UITableViewController {
 
-    let searchController = UISearchController(searchResultsController: nil)
-    let placesHandler = PlacesHandler()
-    let geocoder = CLGeocoder()
-    var foundedPlacemarks:[CLPlacemark] = []
+    // MARK: - Private properties.
+    
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let placesHandler = PlacesHandler()
+    private let geocoder = CLGeocoder()
+    private var foundedPlacemarks:[CLPlacemark] = []
+
+    // MARK: - View controller.
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,46 +47,17 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
 
         navigationItem.hidesSearchBarWhenScrolling = true
     }
+}
 
-    // MARK: - UISearchResultsUpdating Delegate
-
-    func updateSearchResults(for searchController: UISearchController) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.getCoordinate), object: self.searchController.searchBar)
-        self.perform(#selector(self.getCoordinate), with: self.searchController.searchBar, afterDelay: 0.5)
-    }
-
-    @objc func getCoordinate(searchBar : UISearchBar) {
-
-        guard let searchText = searchBar.text else {
-            self.foundedPlacemarks = []
-            self.tableView.reloadData()
-            return
-        }
-
-        geocoder.geocodeAddressString(searchText) { (placemarks, error) in
-
-            if error != nil {
-                self.foundedPlacemarks = []
-                self.tableView.reloadData()
-                return
-            }
-
-            if let allPlacemarks = placemarks {
-                self.foundedPlacemarks = allPlacemarks
-            } else {
-                self.foundedPlacemarks = []
-            }
-
-            self.tableView.reloadData()
-        }
-    }
-
-    // MARK: - Table view data source
-
+// MARK: - Table view delegate.
+extension SearchLocationTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+}
 
+// MARK: - Table view data source.
+extension SearchLocationTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -117,5 +92,40 @@ class SearchLocationTableViewController: UITableViewController, UISearchResultsU
 
         CoreDataHandler.shared.saveContext()
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - Search result updating delegate.
+extension SearchLocationTableViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.getCoordinate), object: self.searchController.searchBar)
+        self.perform(#selector(self.getCoordinate), with: self.searchController.searchBar, afterDelay: 0.5)
+    }
+
+    @objc func getCoordinate(searchBar : UISearchBar) {
+
+        guard let searchText = searchBar.text else {
+            self.foundedPlacemarks = []
+            self.tableView.reloadData()
+            return
+        }
+
+        geocoder.geocodeAddressString(searchText) { (placemarks, error) in
+
+            if error != nil {
+                self.foundedPlacemarks = []
+                self.tableView.reloadData()
+                return
+            }
+
+            if let allPlacemarks = placemarks {
+                self.foundedPlacemarks = allPlacemarks
+            } else {
+                self.foundedPlacemarks = []
+            }
+
+            self.tableView.reloadData()
+        }
     }
 }

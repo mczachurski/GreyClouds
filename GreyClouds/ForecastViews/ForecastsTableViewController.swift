@@ -11,11 +11,17 @@ import ForecastIO
 
 class ForecastsTableViewController: UITableViewController {
 
-    private var hourlyForThisDay: [DataPoint] = []
-
+    // MARK: - Public properties.
+    
     public var place: Place?
     public var forecastForDay: DataPoint?
     public var hourly: DataBlock?
+
+    // MARK: - Private properties.
+
+    private var hourlyForThisDay: [DataPoint] = []
+
+    // MARK: - View controller.
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,24 +55,20 @@ class ForecastsTableViewController: UITableViewController {
                 return
         }
 
-        let formatter = DateFormatter()
-        formatter.locale = Locale.current
-        formatter.timeZone = timeZone
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-
-        let forecastForDay = formatter.string(from: forecast.time)
+        let formatter = DateFormatter(timeZone: timeZone)
+        let forecastForDay = formatter.getShortDate(from: forecast.time)
 
         for hour in hours {
-            let hourForDay = formatter.string(from: hour.time)
+            let hourForDay = formatter.getShortDate(from: hour.time)
             if forecastForDay == hourForDay {
                 self.hourlyForThisDay.append(hour)
             }
         }
     }
+}
 
-    // MARK: - Table view data source
-
+// MARK: - Table view delegate.
+extension ForecastsTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
@@ -77,7 +79,10 @@ class ForecastsTableViewController: UITableViewController {
             return 175
         }
     }
+}
 
+// MARK: - Table view data source.
+extension ForecastsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }

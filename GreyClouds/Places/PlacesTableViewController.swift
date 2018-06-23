@@ -10,15 +10,20 @@ import UIKit
 
 class PlacesTableViewController: UITableViewController {
 
-    let placesHandler = PlacesHandler()
-    var places:[Place] = []
+    // MARK: - Public properties.
 
     public weak var delegate: ChangedPlacesDelegate?
 
+    // MARK: - Private properties.
+
+    private let placesHandler = PlacesHandler()
+    private var places: [Place] = []
+
+    // MARK: - View controller.
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,8 +33,20 @@ class PlacesTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
 
-    // MARK: - Table view data source
+    // MARK: - Actions.
 
+    @IBAction func cancelAction(_ sender: Any) {
+        self.delegate?.changedPlaces()
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func addAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "openSearchLocation", sender: self)
+    }
+}
+
+// MARK: - Table view delegate.
+extension PlacesTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
@@ -38,7 +55,10 @@ class PlacesTableViewController: UITableViewController {
             return 44
         }
     }
+}
 
+// MARK: - Table view data source.
+extension PlacesTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -50,15 +70,6 @@ class PlacesTableViewController: UITableViewController {
         default:
             return 1
         }
-    }
-
-    @IBAction func cancelAction(_ sender: Any) {
-        self.delegate?.changedPlaces()
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func addAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "openSearchLocation", sender: self)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -11,6 +11,12 @@ import ForecastIO
 
 class DayStatisticsTableViewCell: UITableViewCell {
 
+    // MARK: - Public properties.
+
+    public var forecastForDay: DataPoint?
+
+    // MARK: - Private properties.
+
     @IBOutlet private weak var pressureLabelOutlet: UILabel!
     @IBOutlet private weak var precipProbabilityLabelOutlet: UILabel!
     @IBOutlet private weak var windSpeedLabelOutlet: UILabel!
@@ -18,7 +24,7 @@ class DayStatisticsTableViewCell: UITableViewCell {
     @IBOutlet private weak var uvIndexLabelOutlet: UILabel!
     @IBOutlet private weak var visibilityLabelOutlet: UILabel!
 
-    public var forecastForDay: DataPoint?
+    // MARK: - Reload view cell.
 
     public func reloadView() {
         guard let forecast = self.forecastForDay else {
