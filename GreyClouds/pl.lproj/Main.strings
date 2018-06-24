@@ -6,6 +6,21 @@
 "3JI-D6-pVA.text" = "Index UV";
 "TYI-80-L30.text" = "Widoczność";
 "HIx-MD-QO4.text" = "Nawiązywanie połączenia z satelitami. Wyznaczanie twojego położenia...";
+"AZl-9O-RM9.text" = "Ikony";
+"mXA-EO-i1W.text" = "Jednostki";
+"lSl-7T-dvY.text" = "Tryb ciemny";
+"dPh-7e-gic.text" = "Używane biblioteki";
+"BwI-OH-kdu.text" = "Kod źródłowy";
+"i66-6y-ElM.text" = "Zgłoś błąd";
+"AFa-tJ-O5P.text" = "Twitter";
+"PnH-Kj-ijO.text" = "Wersja";
+
+/* Section names */
+"4PW-M7-jwL.headerTitle" = "PODSTAWOWE";
+"nax-FC-0zP.headerTitle" = "INNE";
+
+/* Section footers */
+"4PW-M7-jwL.footerTitle" = "Możesz przełączać się pomiędzy trybami poprzez przesuwanie dwóch palców góra/dół na jakimkolwiek ekranie.";
 
 /* Buttons. */
 "sOg-MQ-tYS.normalTitle" = "Nowe miejsce";
@@ -13,4 +28,7 @@
 /* Navigation title. */
 "fXO-98-kem.title" = "Miejsca";
 "0tW-J0-yJz.title" = "Szukaj";
-
+"R8X-Do-lPz.title" = "Ustawienia";
+"dwr-tN-06U.title" = "Ikony";
+"bkv-go-Z7j.title" = "Jednostki";
+"Kj9-d9-XWb.title" = "Używane biblioteki";

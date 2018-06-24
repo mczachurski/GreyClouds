@@ -9,3 +9,7 @@
 "Enter location" = "Wpisz lokalizację";
 "Delete" = "Usuń";
 "Loading weather..." = "Wczytywanie pogody...";
+"SI units description" = "Jednostki SI (temperatura: ºC, dystans: kilometry)";
+"US units description" = "Jednostki imperialne (temperatura: ºF, dystans: mile)";
+"UK units description" = "To samo co jednostki SI, jednakże najbliższa burza oraz widoczność są w milach, prędkość wiatru jest w milach na kilometr";
+"CA units description" = "To samo co SI, jednakże prędkość wiatru jest w kilometrach na godzinę";

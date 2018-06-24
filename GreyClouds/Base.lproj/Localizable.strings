@@ -9,3 +9,7 @@
 "Enter location" = "Enter location";
 "Delete" = "Delete";
 "Loading weather..." = "Loading weather...";
+"SI units description" = "SI units (temperature: ºC, distance: kilometers)";
+"US units description" = "Imperial units (temperature: ºF, distance: miles)";
+"UK units description" = "Same as SI, except that nearest storm distance and visibility are in miles, and wind speed and wind gust in miles per hour";
+"CA units description" = "Same as SI, except that wind speed and wind gust are in kilometers per hour";
