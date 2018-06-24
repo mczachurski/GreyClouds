@@ -21,6 +21,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet private weak var followMeOutlet: UITableViewCell!
     @IBOutlet private weak var versionOutlet: UITableViewCell!
 
+    @IBOutlet private weak var chosenIconsOutlet: UIImageView!
     private let settingsHandler = SettingsHandler()
 
     // MARK: - View controller.
@@ -36,13 +37,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if Image.imageType == ImageType.mono {
-            iconsOutlet.detailTextLabel?.text = "Mono"
-        } else if Image.imageType == ImageType.dual {
-            iconsOutlet.detailTextLabel?.text = "Dual"
-        } else if Image.imageType == ImageType.color {
-            iconsOutlet.detailTextLabel?.text = "Multi"
-        }
+        chosenIconsOutlet.image = Image.image(forName: "partly-cloudy-day", withSize: ImageSize.small)
 
         let defaultSettings = settingsHandler.getDefaultSettings()
         if defaultSettings.units == Units.si.rawValue {

@@ -29,7 +29,7 @@ class UnitsTableViewController: UITableViewController {
 // MARK: - Table view delegate.
 extension UnitsTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 60
     }
 }
 

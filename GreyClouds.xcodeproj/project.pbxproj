@@ -18,6 +18,7 @@
 		F819D6F220C3245D00F0B22C /* LocationFoundedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819D6F120C3245D00F0B22C /* LocationFoundedDelegate.swift */; };
 		F836B6E620C7047B00823887 /* ApperanceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F836B6E520C7047B00823887 /* ApperanceHandler.swift */; };
 		F84E264E20DF99A700359892 /* SettingsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E264D20DF99A700359892 /* SettingsHandler.swift */; };
+		F84E265320DFC2FC00359892 /* ThirdPartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E265220DFC2FC00359892 /* ThirdPartyTableViewController.swift */; };
 		F87CECD920C2E31600E80B5F /* SearchLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CECD820C2E31600E80B5F /* SearchLocationTableViewCell.swift */; };
 		F87CECDB20C2E33000E80B5F /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CECDA20C2E33000E80B5F /* SearchLocationTableViewController.swift */; };
 		F8BD66D420ADF53100114908 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD66D320ADF53100114908 /* UIColor.swift */; };
@@ -57,6 +58,7 @@
 		F819D6F120C3245D00F0B22C /* LocationFoundedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFoundedDelegate.swift; sourceTree = "<group>"; };
 		F836B6E520C7047B00823887 /* ApperanceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApperanceHandler.swift; sourceTree = "<group>"; };
 		F84E264D20DF99A700359892 /* SettingsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHandler.swift; sourceTree = "<group>"; };
+		F84E265220DFC2FC00359892 /* ThirdPartyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyTableViewController.swift; sourceTree = "<group>"; };
 		F87CECD820C2E31600E80B5F /* SearchLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewCell.swift; sourceTree = "<group>"; };
 		F87CECDA20C2E33000E80B5F /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
 		F8BD66D320ADF53100114908 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 			path = LoadingViewController;
 			sourceTree = "<group>";
 		};
+		F84E265120DFC2D600359892 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				F84E265220DFC2FC00359892 /* ThirdPartyTableViewController.swift */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
 		F87CECD720C2E30000E80B5F /* SearchLocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		F8BF088F20A81A0800A21883 /* GreyClouds */ = {
 			isa = PBXGroup;
 			children = (
+				F84E265120DFC2D600359892 /* ThirdParty */,
 				F8D370A620DF77F400F1E3C4 /* Units */,
 				F8D370A120DF733700F1E3C4 /* Icons */,
 				F8032D9320DEB6BA00D0AC22 /* Settings */,
@@ -356,6 +367,7 @@
 				F8D604B620C1921A0043D1FB /* PlacesTableViewController.swift in Sources */,
 				F8E526E520C58C6F0044AFE2 /* Image.swift in Sources */,
 				F8032D9520DEB70300D0AC22 /* SettingsTableViewController.swift in Sources */,
+				F84E265320DFC2FC00359892 /* ThirdPartyTableViewController.swift in Sources */,
 				F8BD66D420ADF53100114908 /* UIColor.swift in Sources */,
 				F836B6E620C7047B00823887 /* ApperanceHandler.swift in Sources */,
 				F8D370A820DF783700F1E3C4 /* UnitsTableViewController.swift in Sources */,
