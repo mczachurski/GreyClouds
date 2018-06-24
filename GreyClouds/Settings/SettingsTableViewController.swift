@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ForecastIO
 
 class SettingsTableViewController: UITableViewController {
 
@@ -20,6 +21,8 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet private weak var followMeOutlet: UITableViewCell!
     @IBOutlet private weak var versionOutlet: UITableViewCell!
 
+    private let settingsHandler = SettingsHandler()
+
     // MARK: - View controller.
 
     override func viewDidLoad() {
@@ -31,12 +34,25 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         if Image.imageType == ImageType.mono {
             iconsOutlet.detailTextLabel?.text = "Mono"
         } else if Image.imageType == ImageType.dual {
             iconsOutlet.detailTextLabel?.text = "Dual"
         } else if Image.imageType == ImageType.color {
             iconsOutlet.detailTextLabel?.text = "Multi"
+        }
+
+        let defaultSettings = settingsHandler.getDefaultSettings()
+        if defaultSettings.units == Units.si.rawValue {
+            unitsOutlet.detailTextLabel?.text = "SI"
+        } else if defaultSettings.units == Units.us.rawValue {
+            unitsOutlet.detailTextLabel?.text = "US"
+        } else if defaultSettings.units == Units.uk.rawValue {
+            unitsOutlet.detailTextLabel?.text = "UK"
+        } else if defaultSettings.units == Units.ca.rawValue {
+            unitsOutlet.detailTextLabel?.text = "CA"
         }
     }
 

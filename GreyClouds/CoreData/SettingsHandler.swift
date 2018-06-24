@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
+import ForecastIO
 
 class SettingsHandler {
 
@@ -31,7 +32,7 @@ class SettingsHandler {
             settings = self.createSettingsEntity()
             settings?.icons = ImageType.dual.rawValue
             settings?.isDarkMode = false
-            settings?.units = Units.si.rawValue
+            settings?.units =  Units.si.rawValue
 
             CoreDataHandler.shared.saveContext()
         } else {

@@ -44,6 +44,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var tableViewOutlet: UITableView!
 
     private var forecastDownloadedTime: Date?
+    private var lastLoadedUnits: Units?
 
     // MARK: - View controller.
 
@@ -90,6 +91,8 @@ class WeatherViewController: UIViewController {
         }
 
         let client = createDarkSkyClient()
+        self.lastLoadedUnits = client.units
+
         client.getForecast(latitude: latitude, longitude: longitude, extendHourly: true, excludeFields: [.minutely]) { result in
             switch result {
             case .success(let forecast, _):
@@ -103,19 +106,42 @@ class WeatherViewController: UIViewController {
 
     private func createDarkSkyClient() -> DarkSkyClient {
         let client = DarkSkyClient(apiKey: "")
-        client.units = .si
 
-        switch Locale.current.languageCode {
-        case "pl":
-            client.language = Language.polish
-        default:
-            client.language = Language.english
-        }
+        client.units = self.getUnits()
+        client.language = self.getLanguage()
 
         return client
     }
 
+    private func getUnits() -> Units {
+        let settingsHandler = SettingsHandler()
+        let defaultSettings = settingsHandler.getDefaultSettings()
+
+        if let unitsString = defaultSettings.units, let units = Units.init(rawValue: unitsString) {
+            return units
+        }
+
+        return Units.si
+    }
+
+    private func getLanguage() -> Language {
+        switch Locale.current.languageCode {
+        case "pl":
+            return Language.polish
+        default:
+            return Language.english
+        }
+    }
+
     private func forecastShouldBeDownloaded() -> Bool {
+
+        let settingsHandler = SettingsHandler()
+        let defaultSettings = settingsHandler.getDefaultSettings()
+
+        if defaultSettings.units != self.lastLoadedUnits?.rawValue {
+            return true
+        }
+
         let timeInterval = self.forecastDownloadedTime?.timeIntervalSinceNow
         return timeInterval ?? 0 > 60
     }

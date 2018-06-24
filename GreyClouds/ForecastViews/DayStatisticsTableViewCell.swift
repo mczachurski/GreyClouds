@@ -31,14 +31,21 @@ class DayStatisticsTableViewCell: UITableViewCell {
             return
         }
 
+        let settingsHandler = SettingsHandler()
+        let defaultSettings = settingsHandler.getDefaultSettings()
+
+        let distanceUnit = self.getDistanceUnit(settings: defaultSettings)
+        let speedUnit = self.getSpeedUnit(settings: defaultSettings)
+        let pressureUnit = self.getPressureUnit(settings: defaultSettings)
+
         let pressure = Int(forecast.pressure ?? 0)
-        self.pressureLabelOutlet.text = "\(pressure) hPa"
+        self.pressureLabelOutlet.text = "\(pressure) \(pressureUnit)"
 
         let precipitationProbability = Int((forecast.precipitationProbability ?? 0) * 100)
         self.precipProbabilityLabelOutlet.text = "\(precipitationProbability) %"
 
         let windSpeed = Int(forecast.windSpeed ?? 0)
-        self.windSpeedLabelOutlet.text = "\(windSpeed) kmph"
+        self.windSpeedLabelOutlet.text = "\(windSpeed) \(speedUnit)"
 
         let humidity = Int((forecast.humidity ?? 0) * 100)
         self.humidityLabelOutlet.text = "\(humidity) %"
@@ -47,9 +54,33 @@ class DayStatisticsTableViewCell: UITableViewCell {
         self.uvIndexLabelOutlet.text = "\(uvIndex)"
 
         if let visibility = forecast.visibility {
-            self.visibilityLabelOutlet.text = "\(Int(visibility)) km"
+            self.visibilityLabelOutlet.text = "\(Int(visibility)) \(distanceUnit)"
         } else {
-            self.visibilityLabelOutlet.text = "- km"
+            self.visibilityLabelOutlet.text = "- \(distanceUnit)"
         }
+    }
+
+    private func getDistanceUnit(settings: Settings) -> String {
+        if settings.units == Units.si.rawValue || settings.units == Units.ca.rawValue {
+            return "km"
+        }
+
+        return "mi"
+    }
+
+    private func getSpeedUnit(settings: Settings) -> String {
+        if settings.units == Units.si.rawValue || settings.units == Units.ca.rawValue {
+            return "kmph"
+        }
+
+        return "mph"
+    }
+
+    private func getPressureUnit(settings: Settings) -> String {
+        if settings.units == Units.si.rawValue || settings.units == Units.ca.rawValue {
+            return "hPa"
+        }
+
+        return "mb"
     }
 }
