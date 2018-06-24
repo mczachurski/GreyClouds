@@ -9,8 +9,6 @@
 import UIKit
 
 class IconsTableViewCell: UITableViewCell {
-
     @IBOutlet weak var iconsNameOutlet: UILabel!
     @IBOutlet weak var imageOutlet: UIImageView!
-
 }

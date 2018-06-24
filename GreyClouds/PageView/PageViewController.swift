@@ -15,6 +15,7 @@ class PageViewController: UIPageViewController {
 
     private let placesHandler = PlacesHandler()
     private var citiesViews: [UIViewController] = []
+    private var lastLoadedImageType: ImageType = ImageType.dual
 
     // MARK: - Main view controller.
 
@@ -27,6 +28,14 @@ class PageViewController: UIPageViewController {
         self.createSettingsButton()
         self.createPlacesButton()
         self.createMainApplicationViews()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if self.lastLoadedImageType != Image.imageType {
+            self.createMainApplicationViews()
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -88,7 +97,9 @@ class PageViewController: UIPageViewController {
         self.dataSource = nil
         self.dataSource = self
 
+        self.lastLoadedImageType = Image.imageType
         self.citiesViews = views
+
         self.renderFirstView()
     }
 

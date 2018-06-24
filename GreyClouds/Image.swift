@@ -22,7 +22,35 @@ public enum ImageSize: String {
 
 public class Image {
 
-    static var imageType = ImageType.color
+    private static var _imageType:ImageType?
+
+    static var imageType: ImageType {
+        get {
+
+            if let type = _imageType {
+                return type
+            }
+
+            let settingsHandler = SettingsHandler()
+            let defaultSettings = settingsHandler.getDefaultSettings()
+
+            if let icons = defaultSettings.icons, let type = ImageType.init(rawValue: icons) {
+                _imageType = type
+                return type
+            }
+
+            return ImageType.dual
+        }
+        set {
+            let settingsHandler = SettingsHandler()
+            let defaultSettings = settingsHandler.getDefaultSettings()
+
+            defaultSettings.icons = newValue.rawValue
+            CoreDataHandler.shared.saveContext()
+
+            _imageType = newValue
+        }
+    }
 
     static func fullImageName(forName name: String, withSize size: ImageSize = ImageSize.normal) -> String {
         return name + size.rawValue + Image.imageType.rawValue

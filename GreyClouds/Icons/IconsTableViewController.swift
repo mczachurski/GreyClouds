@@ -33,7 +33,6 @@ extension IconsTableViewController {
         return 3
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "iconCell", for: indexPath)
 
@@ -41,15 +40,38 @@ extension IconsTableViewController {
             if indexPath.row == 0 {
                 iconsTableViewCell.iconsNameOutlet.text = "Mono"
                 iconsTableViewCell.imageOutlet.image = UIImage(named: "partly-cloudy-day-small-mono")
+                iconsTableViewCell.accessoryType = Image.imageType == ImageType.mono ?
+                    UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
             } else if indexPath.row == 1 {
                 iconsTableViewCell.iconsNameOutlet.text = "Dual"
                 iconsTableViewCell.imageOutlet.image = UIImage(named: "partly-cloudy-day-small-dual")
+                iconsTableViewCell.accessoryType = Image.imageType == ImageType.dual ?
+                    UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
             } else if indexPath.row == 2 {
                 iconsTableViewCell.iconsNameOutlet.text = "Multi"
                 iconsTableViewCell.imageOutlet.image = UIImage(named: "partly-cloudy-day-small-color")
+                iconsTableViewCell.accessoryType = Image.imageType == ImageType.color ?
+                    UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
             }
         }
 
+        let selectionColor = UIView()
+        selectionColor.backgroundColor = UIColor.light
+        cell.selectedBackgroundView = selectionColor
+
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        if indexPath.row == 0 {
+            Image.imageType = ImageType.mono
+        } else if indexPath.row == 1 {
+            Image.imageType = ImageType.dual
+        } else if indexPath.row == 2 {
+            Image.imageType = ImageType.color
+        }
+
+        self.navigationController?.popViewController(animated: true)
     }
 }

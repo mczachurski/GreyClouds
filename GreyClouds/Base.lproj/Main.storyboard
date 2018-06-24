@@ -665,11 +665,13 @@
                                         <constraint firstItem="woH-f2-O9k" firstAttribute="leading" secondItem="e6t-QK-pmd" secondAttribute="trailing" constant="8" id="0XD-lB-3k5"/>
                                         <constraint firstItem="e6t-QK-pmd" firstAttribute="leading" secondItem="cPw-d5-TjB" secondAttribute="leadingMargin" id="FHb-QI-QAv"/>
                                         <constraint firstItem="woH-f2-O9k" firstAttribute="centerY" secondItem="cPw-d5-TjB" secondAttribute="centerY" id="aYe-EN-XJC"/>
-                                        <constraint firstAttribute="trailing" secondItem="woH-f2-O9k" secondAttribute="trailing" constant="14" id="n0R-IN-wrw"/>
                                         <constraint firstItem="e6t-QK-pmd" firstAttribute="centerY" secondItem="cPw-d5-TjB" secondAttribute="centerY" id="nc2-CL-bJw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" name="main"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="woH-f2-O9k" secondAttribute="trailing" constant="54" id="fNB-gk-8tj"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="iconsNameOutlet" destination="e6t-QK-pmd" id="oWJ-Mb-1v7"/>
                                     <outlet property="imageOutlet" destination="woH-f2-O9k" id="gut-uA-1P7"/>

@@ -17,6 +17,8 @@
 		F819D6F020C31DDF00F0B22C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819D6EF20C31DDF00F0B22C /* LoadingViewController.swift */; };
 		F819D6F220C3245D00F0B22C /* LocationFoundedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819D6F120C3245D00F0B22C /* LocationFoundedDelegate.swift */; };
 		F836B6E620C7047B00823887 /* ApperanceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F836B6E520C7047B00823887 /* ApperanceHandler.swift */; };
+		F84E264E20DF99A700359892 /* SettingsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E264D20DF99A700359892 /* SettingsHandler.swift */; };
+		F84E265020DFA1E900359892 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E264F20DFA1E900359892 /* Units.swift */; };
 		F87CECD920C2E31600E80B5F /* SearchLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CECD820C2E31600E80B5F /* SearchLocationTableViewCell.swift */; };
 		F87CECDB20C2E33000E80B5F /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87CECDA20C2E33000E80B5F /* SearchLocationTableViewController.swift */; };
 		F8BD66D420ADF53100114908 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BD66D320ADF53100114908 /* UIColor.swift */; };
@@ -55,6 +57,8 @@
 		F819D6EF20C31DDF00F0B22C /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		F819D6F120C3245D00F0B22C /* LocationFoundedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFoundedDelegate.swift; sourceTree = "<group>"; };
 		F836B6E520C7047B00823887 /* ApperanceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApperanceHandler.swift; sourceTree = "<group>"; };
+		F84E264D20DF99A700359892 /* SettingsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHandler.swift; sourceTree = "<group>"; };
+		F84E264F20DFA1E900359892 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 		F87CECD820C2E31600E80B5F /* SearchLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewCell.swift; sourceTree = "<group>"; };
 		F87CECDA20C2E33000E80B5F /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
 		F8BD66D320ADF53100114908 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			children = (
 				F819D6E720C303C900F0B22C /* CoreDataHandler.swift */,
 				F819D6EA20C3047B00F0B22C /* PlacesHandler.swift */,
+				F84E264D20DF99A700359892 /* SettingsHandler.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				F8BF089020A81A0800A21883 /* AppDelegate.swift */,
 				F836B6E520C7047B00823887 /* ApperanceHandler.swift */,
 				F8E526E420C58C6F0044AFE2 /* Image.swift */,
+				F84E264F20DFA1E900359892 /* Units.swift */,
 				F8BF089420A81A0800A21883 /* Main.storyboard */,
 				F8BF089A20A81A0900A21883 /* Assets.xcassets */,
 				F8BF089C20A81A0900A21883 /* LaunchScreen.storyboard */,
@@ -345,6 +351,7 @@
 				F8F87A4F20BB05CD0020CAFA /* ForecastsTableViewController.swift in Sources */,
 				F810659720BC8DAE00DCB6EE /* DayDetailsTableViewCell.swift in Sources */,
 				F819D6EB20C3047B00F0B22C /* PlacesHandler.swift in Sources */,
+				F84E264E20DF99A700359892 /* SettingsHandler.swift in Sources */,
 				F8D604B320C15E0D0043D1FB /* DayStatisticsTableViewCell.swift in Sources */,
 				F819D6ED20C31A4000F0B22C /* ChangedPlacesDelegate.swift in Sources */,
 				F8D370A520DF744100F1E3C4 /* IconsTableViewCell.swift in Sources */,
@@ -361,6 +368,7 @@
 				F819D6E820C303C900F0B22C /* CoreDataHandler.swift in Sources */,
 				F8D604B820C199C60043D1FB /* CityTableViewCell.swift in Sources */,
 				F8BF08A620A81B9000A21883 /* WeatherViewController.swift in Sources */,
+				F84E265020DFA1E900359892 /* Units.swift in Sources */,
 				F810659520BC5F3000DCB6EE /* HourForecastTableViewCell.swift in Sources */,
 				F8F87A4D20B936110020CAFA /* Double.swift in Sources */,
 				F8F87A4B20B92E470020CAFA /* WeatherItemTableViewCell.swift in Sources */,

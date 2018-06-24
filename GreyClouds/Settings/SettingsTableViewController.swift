@@ -30,6 +30,16 @@ class SettingsTableViewController: UITableViewController {
         self.versionOutlet.detailTextLabel?.text = getAppVersion()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if Image.imageType == ImageType.mono {
+            iconsOutlet.detailTextLabel?.text = "Mono"
+        } else if Image.imageType == ImageType.dual {
+            iconsOutlet.detailTextLabel?.text = "Dual"
+        } else if Image.imageType == ImageType.color {
+            iconsOutlet.detailTextLabel?.text = "Multi"
+        }
+    }
+
     private func changeSelectionColor() {
         let selectionColor = UIView()
         selectionColor.backgroundColor = UIColor.light
